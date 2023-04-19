@@ -1,25 +1,11 @@
-import logo from './logo.svg';
+import { ApiHook } from './components/api';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const { data, loading, error } = ApiHook("https://api.noroff.dev/api/v1/holidaze/venues");
+  return <div>
+    Hello world
+  </div>
 }
 
 export default App;
