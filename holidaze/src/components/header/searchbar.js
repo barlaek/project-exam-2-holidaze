@@ -4,7 +4,7 @@ import { ApiHook } from "../api";
 export function SearchBar() {
     const { data, loading, error } = ApiHook("https://api.noroff.dev/api/v1/holidaze/venues");
 
-    const [filteredData, setFilteredData] = useState([]);
+    const [filteredResults, setFilteredResults] = useState([]);
     const [searchInput, setSearchInput] = useState('');
 
     const searchItems = (searchValue) => {
@@ -14,14 +14,21 @@ export function SearchBar() {
                 return Object.values(item).join('').toLocaleLowerCase().includes(searchInput.toLocaleLowerCase())
             })
             
-            setFilteredData(filteredData);
+            setFilteredResults(filteredData);
         } else {
-            setFilteredData(data)
+            setFilteredResults(data)
         }
     }
 
 
     return (
-        <input type="text" placeholder="search" onChange={(e) => searchItems(e.target.value)} />
+        <div>
+            <input type="text" placeholder="search" onChange={(e) => searchItems(e.target.value)} />
+            {searchInput.length > 1 ? (
+                filteredResults.map((item) => {
+                    return <div></div>
+                })
+            )}
+        </div>
     )
 }
