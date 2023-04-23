@@ -1,8 +1,9 @@
 import { VenueList } from "../venues/venuelist";
 import { ApiHook } from "../api/api";
+import { venuesUrl } from "../api/endpoints";
 
 export function Home() {
-    const { data, loading, error } = ApiHook("https://api.noroff.dev/api/v1/holidaze/venues");
+    const { data, loading, error } = ApiHook(`${venuesUrl}`);
 
     return (
         <div>
