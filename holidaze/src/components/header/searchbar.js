@@ -23,12 +23,7 @@ export function SearchBar() {
 
     return (
         <div>
-            <input type="text" placeholder="search" onChange={(e) => searchItems(e.target.value)} />
-            {searchInput.length > 1 ? (
-                filteredResults.map((item) => {
-                    return <div></div>
-                })
-            )}
+            <input type="text" placeholder="search"></input>
         </div>
     )
 }
