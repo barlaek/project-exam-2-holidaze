@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ApiHook } from "../api";
+import { ApiHook } from "../api/api";
 
 export function SearchBar() {
     const { data, loading, error } = ApiHook("https://api.noroff.dev/api/v1/holidaze/venues");

@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { ApiHook } from "../api";
+import { ApiHook } from "../api/api";
 import { VenuePopulation } from "./venuePop";
 
 export function Venue() {
