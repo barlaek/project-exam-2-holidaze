@@ -9,7 +9,7 @@ export function Home() {
         <div>
             <h2>Home</h2>
             {data.map((venue) => (
-                <VenueList venue={venue}/>
+                <VenueList venue={venue} key={venue.id}/>
             ))}
         </div>
     )
