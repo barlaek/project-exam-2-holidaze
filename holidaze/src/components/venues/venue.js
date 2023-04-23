@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { ApiHook } from "../api";
+import { VenuePopulation } from "./venuePop";
 
 export function Venue() {
     let { id } = useParams();
@@ -17,7 +18,7 @@ export function Venue() {
 
     return (
         <div>
-            <h2>{data.name}</h2>
+            <VenuePopulation venueData={data} />
         </div>
     )
 }
