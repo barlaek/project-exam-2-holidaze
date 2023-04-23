@@ -5,6 +5,14 @@ import { venuesUrl } from "../api/endpoints";
 export function Home() {
     const { data, loading, error } = ApiHook(`${venuesUrl}`);
 
+    if(loading) {
+        return <div>loading</div>
+    }
+
+    if(error) {
+        return <div>Error</div>
+    }
+
     return (
         <div>
             <h2>Home</h2>
