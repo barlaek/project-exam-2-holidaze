@@ -3,7 +3,7 @@ import { ApiHook } from "../api/api";
 import { venuesUrl } from "../api/endpoints";
 
 export function SearchBar() {
-    const { data, loading, error } = ApiHook(`${venuesUrl}`);
+    const { data } = ApiHook(`${venuesUrl}`);
 
     const [searchInput, setSearchInput] = useState('');
 
