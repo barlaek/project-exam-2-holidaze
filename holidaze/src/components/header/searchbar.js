@@ -5,7 +5,7 @@ import { venuesUrl } from "../api/endpoints";
 export function SearchBar() {
     const { data } = ApiHook(`${venuesUrl}`);
 
-    const [searchInput, setSearchInput] = useState('');
+    const [searchInput, setSearchInput] = useState([]);
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -15,13 +15,17 @@ export function SearchBar() {
         })
 
         if(searchInput === '') {
-            setSearchInput('');
-            console.log(setSearchInput)
+            return clearInput();
         } else {
-            setSearchInput(venueList);
-            console.log(setSearchInput);
+            return setSearchInput(venueList);
         }
     }
+
+    function clearInput() {
+        return setSearchInput([])
+    }
+
+    console.log(searchInput)
 
 
     return (
