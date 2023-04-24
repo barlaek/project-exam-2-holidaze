@@ -15,14 +15,10 @@ export function SearchBar() {
         })
 
         if(searchInput === '') {
-            return clearInput();
+            return setSearchInput([])
         } else {
             return setSearchInput(venueList);
         }
-    }
-
-    function clearInput() {
-        return setSearchInput([])
     }
 
     console.log(searchInput)
