@@ -14,7 +14,7 @@ export function SearchBar() {
             return value.name.toLowerCase().includes(searchWord.toLowerCase());
         })
 
-        if(searchWord === '') {
+        if(searchInput === '') {
             setSearchInput('');
             console.log(setSearchInput)
         } else {
