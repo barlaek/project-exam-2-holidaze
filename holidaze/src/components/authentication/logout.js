@@ -1,0 +1,1 @@
+// Removes the JWT from storage, invalidating the HTTP request
