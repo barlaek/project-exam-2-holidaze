@@ -46,6 +46,19 @@ export function Registration() {
 
     function onSubmit(input) {
         console.log(input)
+        const body = {
+            userName: input.userName,
+            email: input.email,
+            password: input.password,
+            avatar: input.avatar,
+            venueManager: input.venueManager,
+        };
+
+        const response = fetch(`${registerUrl}`, {
+            method: 'post',
+            body: JSON.stringify(body),
+        });
+        console.log(response);
     }
 
     return (
