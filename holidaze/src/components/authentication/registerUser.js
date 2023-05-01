@@ -16,7 +16,6 @@ const schema = yup.object({
         .required('You must provide a valid email address. Example: jigglypuff@stud.noroff.no'),
     password: yup
         .string()
-        .password()
         .required('Please provide a password'),
     avatar: yup
         .string()
@@ -37,26 +36,28 @@ export function Registration() {
         resolver: yupResolver(schema),
     });
 
+    // const { data } = ApiHook(`${registerUrl}`, {
+    //     method: 'post',
+    //     headers: {
+    //         'Content-Type': 'application/json', 
+    //     },
+    //     body: JSON.stringify(data),
+    // })
+
     function onSubmit(input) {
-        const { data } = ApiHook(`${registerUrl}`, {
-            method: post,
-            headers: {
-                'Content-Type': 'application/json', 
-            },
-            body: JSON.stringify(input),
-        })
-        return { data }
+        console.log(input)
     }
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <input {...register('userName')}/>
+            <input {...register('userName')} placeholder="Username"/>
             <p>{errors.userName?.message}</p>
-            <input {...register('email')}/>
+            <input {...register('email')} placeholder="email"/>
             <p>{errors.email?.message}</p>
-            <input {...register('password')}/>
+            <input {...register('password')} placeholder="password" type="password"/>
             <p>{errors.password?.message}</p>
-            <input {...register('avatar')}/>
+            <input {...register('avatar')} placeholder="avatar"/>
+            <input type="submit" placeholder='submit'/>
         </form>
     )
 }
