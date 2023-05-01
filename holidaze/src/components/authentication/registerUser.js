@@ -1,11 +1,10 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { ApiHook } from '../api/api';
 import { registerUrl } from '../api/endpoints';
 
 const schema = yup.object({
-    userName: yup
+    name: yup
         .string()
         .min(3, 'Your user name should be at least 3 characters.')
         .max(20, 'Your user name cannot be longer than 20 characters.')
@@ -19,13 +18,12 @@ const schema = yup.object({
         .required('Please provide a password'),
     avatar: yup
         .string()
-        .url(),
+        .url()
+        .default(null),
     venueManager: yup
         .boolean()
         .default(false),
 }).required();
-
-// Takes two strings and a boolean, and sends to an endpoint
 
 export function Registration() {
     const {
@@ -36,34 +34,33 @@ export function Registration() {
         resolver: yupResolver(schema),
     });
 
-    // const { data } = ApiHook(`${registerUrl}`, {
-    //     method: 'post',
-    //     headers: {
-    //         'Content-Type': 'application/json', 
-    //     },
-    //     body: JSON.stringify(data),
-    // })
-
     function onSubmit(input) {
         console.log(input)
         const body = {
-            userName: input.userName,
+            name: input.name,
             email: input.email,
             password: input.password,
             avatar: input.avatar,
             venueManager: input.venueManager,
         };
 
-        const response = fetch(`${registerUrl}`, {
+        fetch(`${registerUrl}`, {
             method: 'post',
+            headers: {
+                'Content-type': 'application/json'
+            },
             body: JSON.stringify(body),
-        });
-        console.log(response);
+        }).then(response => {
+            console.log(response)
+        })
+        .catch(error => {
+            console.log(error)
+        })
     }
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <input {...register('userName')} placeholder="Username"/>
+            <input {...register('name')} placeholder="Name"/>
             <p>{errors.userName?.message}</p>
             <input {...register('email')} placeholder="email"/>
             <p>{errors.email?.message}</p>
