@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { registerUrl } from '../api/endpoints';
-import { redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const schema = yup.object({
     name: yup
@@ -27,6 +27,8 @@ const schema = yup.object({
 }).required();
 
 export function Registration() {
+    const navigation = useNavigate();
+
     const {
         register,
         handleSubmit,
@@ -53,6 +55,9 @@ export function Registration() {
             body: JSON.stringify(body),
         }).then(response => {
             console.log(response)
+            if(response.ok) {
+                return navigation("/login")
+            }
         })
         .catch(error => {
             console.log(error)
