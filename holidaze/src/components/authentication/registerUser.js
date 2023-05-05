@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { registerUrl } from '../api/endpoints';
+import { redirect } from 'react-router-dom';
 
 const schema = yup.object({
     name: yup
@@ -61,7 +62,7 @@ export function Registration() {
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <select {...register('venueManager')}>
-                <option>Guest</option>
+                <option value={false}>Guest</option>
                 <option value={true}>Venue manager</option>
             </select>
             <input {...register('name')} placeholder="Name"/>
