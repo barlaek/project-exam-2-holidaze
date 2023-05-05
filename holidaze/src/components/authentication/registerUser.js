@@ -60,6 +60,10 @@ export function Registration() {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
+            <select {...register('venueManager')}>
+                <option>Guest</option>
+                <option value={true}>Venue manager</option>
+            </select>
             <input {...register('name')} placeholder="Name"/>
             <p>{errors.userName?.message}</p>
             <input {...register('email')} placeholder="email"/>
