@@ -37,12 +37,7 @@ export function Login() {
                 'Content-type': 'application/json'
             },
             body: JSON.stringify(body),
-        }).then(response => {
-            response.json()
-            if(response.ok) {
-                return (navigate('/'));
-            }
-        })
+        }).then(response => response.json())
         .then(data => {
             console.log(data)
             const accesToken = data.accessToken;
@@ -51,7 +46,9 @@ export function Login() {
         })
         .catch(errors => {
             console.log(errors)
-        })
+       }).finally(() => {
+//
+       })
     }
 
     return (
@@ -61,7 +58,7 @@ export function Login() {
                 <p>{errors.email?.message}</p>
                 <input type='password' {...register('password')} placeholder='Password'/>
                 <p>{errors.password?.message}</p>
-                <input type='submit' />
+                <input type='submit' value='Log in'/>
             </form>
             <Link to="/register"><p>Register an account</p></Link>
         </div>

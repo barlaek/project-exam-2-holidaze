@@ -77,7 +77,7 @@ export function Registration() {
             <input {...register('password')} placeholder="password" type="password"/>
             <p>{errors.password?.message}</p>
             <input {...register('avatar')} placeholder="avatar"/>
-            <input type="submit" placeholder='submit'/>
+            <input type="submit" value='Register'/>
         </form>
     )
 }
