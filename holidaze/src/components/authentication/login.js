@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { loginUrl } from "../api/endpoints";
@@ -16,6 +16,7 @@ const schema = yup.object({
 
 // Sends post request to the endpoint and store JWT to localstorage and updates state
 export function Login() {
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -36,7 +37,12 @@ export function Login() {
                 'Content-type': 'application/json'
             },
             body: JSON.stringify(body),
-        }).then(response => response.json())
+        }).then(response => {
+            response.json()
+            if(response.ok) {
+                return (navigate('/'));
+            }
+        })
         .then(data => {
             console.log(data)
             const accesToken = data.accessToken;
