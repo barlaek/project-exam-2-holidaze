@@ -71,7 +71,7 @@ export function Registration() {
                 <option value={true}>Venue manager</option>
             </select>
             <input {...register('name')} placeholder="Name"/>
-            <p>{errors.userName?.message}</p>
+            <p>{errors.name?.message}</p>
             <input {...register('email')} placeholder="email"/>
             <p>{errors.email?.message}</p>
             <input {...register('password')} placeholder="password" type="password"/>
