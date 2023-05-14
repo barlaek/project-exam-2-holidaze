@@ -40,10 +40,10 @@ export function Login() {
         }).then(response => response.json())
         .then(data => {
             console.log(data)
-            const accesToken = data.accessToken;
-            localStorage.setItem('accessToken', accesToken);
+            const accessToken = data.accessToken;
+            localStorage.setItem('accessToken', accessToken);
             console.log(localStorage)
-            if(localStorage.accesToken === accesToken) {
+            if(localStorage.accessToken === accessToken) {
                 navigate('/')
             }
         })
