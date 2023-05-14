@@ -43,6 +43,9 @@ export function Login() {
             const accesToken = data.accessToken;
             localStorage.setItem('accessToken', accesToken);
             console.log(localStorage)
+            if(localStorage.accesToken === accesToken) {
+                navigate('/')
+            }
         })
         .catch(errors => {
             console.log(errors)
