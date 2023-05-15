@@ -5,12 +5,16 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { Venue } from './components/venues/venue';
 import { Registration } from './components/authentication/registerUser';
-import UserContext from './components/context/context';
+import { createContext, useState } from 'react';
+
+export const UserContext = createContext(null);
 
 function App() {
+  const [ currentUser, setCurrentUser ] = useState(null);
+
   return (
     <div>
-      <UserContext>
+      <UserContext.Provider value={{currentUser, setCurrentUser}}>
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route index element={<Home />} />
@@ -19,7 +23,7 @@ function App() {
             <Route path='/register' element={<Registration />}/>
           </Route>
         </Routes>
-      </UserContext>
+      </UserContext.Provider>
     </div>
   )
 }

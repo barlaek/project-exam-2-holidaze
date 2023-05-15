@@ -3,6 +3,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { loginUrl } from "../api/endpoints";
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { UserContext } from "../../App";
 
 const schema = yup.object({
     email: yup
@@ -17,6 +19,7 @@ const schema = yup.object({
 // Sends post request to the endpoint and store JWT to localstorage and updates state
 export function Login() {
     const navigate = useNavigate();
+    const { currentUser, setCurrentUser } = useContext(UserContext);
     const {
         register,
         handleSubmit,
@@ -43,8 +46,16 @@ export function Login() {
             const accessToken = data.accessToken;
             localStorage.setItem('accessToken', accessToken);
             console.log(localStorage)
+            setCurrentUser({
+                name: data.name,
+                email: data.email,
+                accessToken: localStorage.getItem('accessToken'),
+                avatar: data.avatar,
+                venueManager: data.venueManager,
+            })
+            console.log(currentUser)
             if(localStorage.accessToken === accessToken) {
-                navigate('/')
+                // navigate('/')
             }
         })
         .catch(errors => {
