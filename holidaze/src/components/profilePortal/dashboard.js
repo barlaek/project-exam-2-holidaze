@@ -19,21 +19,6 @@ export function Dashboard() {
 
     console.log(data);
 
-    // fetch(`${profilesUrl}/${name}`, {
-    //     method: 'get',
-    //     headers: {
-    //         'Content-type': 'application/json',
-    //         Authorization: `Bearer ${token}`
-    //     }
-    // }).then(response => response.json())
-    // .then(data => {
-    //     console.log(data)
-    //     const body = data
-    //     return body
-    // }).catch(error => {
-    //     console.log(error);
-    // })
-
     return (
         <div>
             <img src={data.avatar} alt="profile avatar" />
