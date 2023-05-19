@@ -9,19 +9,36 @@ export function Dashboard() {
     const token = localData.accessToken;
     console.log(token)
 
-    fetch(`${profilesUrl}/${name}`, {
+    const { data, loading, error } = ApiHook(`${profilesUrl}/${name}`, {
         method: 'get',
         headers: {
             'Content-type': 'application/json',
             Authorization: `Bearer ${token}`
         }
-    }).then(response => {
-        console.log(response);
-    }).catch(error => {
-        console.log(error);
     })
 
+    console.log(data);
+
+    // fetch(`${profilesUrl}/${name}`, {
+    //     method: 'get',
+    //     headers: {
+    //         'Content-type': 'application/json',
+    //         Authorization: `Bearer ${token}`
+    //     }
+    // }).then(response => response.json())
+    // .then(data => {
+    //     console.log(data)
+    //     const body = data
+    //     return body
+    // }).catch(error => {
+    //     console.log(error);
+    // })
+
     return (
-        <div><h2>Hello from the Dashboard</h2></div>
+        <div>
+            <img src={data.avatar} alt="profile avatar" />
+            <h2>{data.name}</h2>
+            <p>hello</p>
+        </div>
     )
 }
