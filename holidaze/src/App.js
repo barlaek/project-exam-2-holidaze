@@ -12,6 +12,8 @@ export const UserContext = createContext(null);
 function App() {
   const [ currentUser, setCurrentUser ] = useState(null);
 
+  console.log(currentUser);
+
   return (
     <div>
       <UserContext.Provider value={{currentUser, setCurrentUser}}>

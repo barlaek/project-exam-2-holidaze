@@ -5,12 +5,12 @@ import { useContext } from "react";
 import { UserContext } from "../../App";
 
 export function Logout() {
-    const [ currentUser, setCurrentUser ] = useContext(UserContext)
+    // const [ currentUser, setCurrentUser ] = useContext(UserContext)
     function logOut() {
         localStorage.removeItem('accessToken');
         console.log(localStorage);
-        setCurrentUser(null)
-        console.log(currentUser);
+        // setCurrentUser(null)
+        // console.log(currentUser);
 
     }
 

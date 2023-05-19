@@ -55,13 +55,11 @@ export function Login() {
             })
             console.log(currentUser)
             if(localStorage.accessToken === accessToken) {
-                // navigate('/')
+                navigate('/')
             }
         })
         .catch(errors => {
             console.log(errors)
-       }).finally(() => {
-//
        })
     }
 
