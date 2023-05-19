@@ -3,16 +3,12 @@ import { ApiHook } from "../api/api";
 import { profilesUrl } from "../api/endpoints";
 
 export function Dashboard() {
-    // get name as paramater
-    // apply to API hook
-    // load profile data
 
     const localData = JSON.parse(localStorage.getItem('userBody'))
     const name = localData.name
     const token = localData.accessToken;
     console.log(token)
 
-    // const { data, loading, error } = ApiHook(`${profilesUrl}/${name}`);
     fetch(`${profilesUrl}/${name}`, {
         method: 'get',
         headers: {
