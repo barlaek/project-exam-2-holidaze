@@ -4,7 +4,7 @@ import { Logout } from "../authentication/logout"
 export function LogBtn() {
     return (
         <div>
-            <Link to="/login"><button>Click me</button></Link>
+            <Link to="/login"><button>Log in</button></Link>
             <Logout />
         </div>
     )

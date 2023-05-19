@@ -7,8 +7,8 @@ export function Dashboard() {
     // apply to API hook
     // load profile data
 
-    let { name } = useParams();
     const localData = JSON.parse(localStorage.getItem('userBody'))
+    const name = localData.name
     const token = localData.accessToken;
     console.log(token)
 

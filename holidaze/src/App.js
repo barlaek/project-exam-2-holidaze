@@ -21,10 +21,10 @@ function App() {
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path='/:id' element={<Venue />} />
+            <Route path='/venues/:id' element={<Venue />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Registration />}/>
-            <Route path='/:name' element={<Dashboard />}/>
+            <Route path='/profiles/:name' element={<Dashboard />}/>
           </Route>
         </Routes>
       </UserContext.Provider>
