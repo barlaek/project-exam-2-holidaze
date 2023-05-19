@@ -1,5 +1,12 @@
+import { useContext } from "react";
+import { UserContext } from "../../App";
+
 export function VenuePopulation(props) {
+    const { currentUser, setCurrentUser } = useContext(UserContext);
+    
     const venueData = props.venueData;
+
+    console.log(currentUser)
 
     return (
         <div>
