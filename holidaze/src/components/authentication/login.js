@@ -42,20 +42,25 @@ export function Login() {
             body: JSON.stringify(body),
         }).then(response => response.json())
         .then(data => {
-            console.log(data)
-            const accessToken = data.accessToken;
-            localStorage.setItem('accessToken', accessToken);
-            console.log(localStorage)
-            setCurrentUser({
+
+            const userBody = {
                 name: data.name,
                 email: data.email,
-                accessToken: localStorage.getItem('accessToken'),
+                accessToken: data.accessToken,
                 avatar: data.avatar,
                 venueManager: data.venueManager,
-            })
-            console.log(currentUser)
-            if(localStorage.accessToken === accessToken) {
-                navigate('/')
+            };
+
+            localStorage.setItem('userBody', JSON.stringify(userBody));
+
+            const localData = JSON.parse(localStorage.getItem('userBody'));
+            
+            setCurrentUser(localData);
+
+            if(localData.accessToken === localData.accessToken) {
+                setTimeout(() => {
+                    navigate('/');
+                }, 1000);
             }
         })
         .catch(errors => {
