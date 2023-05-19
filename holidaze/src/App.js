@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Venue } from './components/venues/venue';
 import { Registration } from './components/authentication/registerUser';
 import { createContext, useState } from 'react';
+import { Dashboard } from './components/profilePortal/dashboard';
 
 export const UserContext = createContext(null);
 
@@ -23,6 +24,7 @@ function App() {
             <Route path='/:id' element={<Venue />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Registration />}/>
+            <Route path='/:name' element={<Dashboard />}/>
           </Route>
         </Routes>
       </UserContext.Provider>
