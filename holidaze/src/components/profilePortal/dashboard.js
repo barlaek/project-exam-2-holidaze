@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import { ApiHook } from "../api/api";
 import { profilesUrl } from "../api/endpoints";
+import { ProfilePopulation } from "./profilePop";
 
 export function Dashboard() {
 
@@ -23,7 +24,7 @@ export function Dashboard() {
         <div>
             <img src={data.avatar} alt="profile avatar" />
             <h2>{data.name}</h2>
-            <p>hello</p>
+            <ProfilePopulation profileData={data} />
         </div>
     )
 }
