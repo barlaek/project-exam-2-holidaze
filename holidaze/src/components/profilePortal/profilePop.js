@@ -1,3 +1,5 @@
+import { UpdateAvatar } from "./updateAvatar"
+
 export function ProfilePopulation(props) {
     const profileData = props.profileData
 
@@ -5,6 +7,7 @@ export function ProfilePopulation(props) {
         <div>
             <div>
                 <img src={profileData.avatar} alt="profile picture" />
+                <UpdateAvatar />
             </div>
             <div>
                 <h3>{profileData.name}</h3>
