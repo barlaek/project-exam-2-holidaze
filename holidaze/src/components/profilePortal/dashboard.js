@@ -3,6 +3,7 @@ import { ApiHook } from "../api/api";
 import { profilesUrl } from "../api/endpoints";
 import { ProfilePopulation } from "./profilePop";
 import { Bookings } from "./bookings";
+import { CuratedVenues } from "./curatedVenues";
 
 export function Dashboard() {
 
@@ -27,6 +28,9 @@ export function Dashboard() {
             </div>
             <div>
                 <Bookings />
+            </div>
+            <div>
+                <CuratedVenues />
             </div>
         </div>
     )
