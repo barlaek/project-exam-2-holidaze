@@ -8,12 +8,10 @@ export function ProfilePopulation(props) {
             </div>
             <div>
                 <h3>{profileData.name}</h3>
-                {profileData.venueManager === true ? (
+                <div>
                     <p>Contact information:</p>
                     <p>{profileData.email}</p>
-                ) : (
-                    
-                )}
+                </div>
             </div>
         </div>
     )
