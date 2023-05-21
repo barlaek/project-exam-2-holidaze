@@ -10,7 +10,7 @@ const schema = yup.object({
     description: yup
         .string()
         .required('Please provide description of the venue'),
-    media: yup.array().of(yup.string().url()),
+    media: yup.array().of(yup.string()),
     // media: yup
     //     .string()
     //     .url(),
