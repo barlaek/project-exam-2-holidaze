@@ -10,12 +10,16 @@ const schema = yup.object({
     description: yup
         .string()
         .required('Please provide description of the venue'),
-    media: yup.mixed()
-        .when('isArray', {
-            is: Array.isArray,
-            then: yup.array().of(yup.string().url()),
-            otherwise: yup.string().url(),
-            }),
+    media: yup
+        .string()
+        .url(),
+        // .array().of(yup.string().url()),
+    // media: yup.mixed()
+        // .when('media', {
+        //     is: Array.media,
+        //     then: yup.array().of(yup.string().url()),
+        //     otherwise: yup.string().url(),
+        //     }),
     price: yup
         .number()
         .required(),
@@ -61,7 +65,7 @@ export function CreateVenue() {
         const body = {
             name: input.name,
             description: input.description,
-            media: [input.media],
+            media: input.media,
             price: input.price,
             maxGuests: input.maxGuests,
             rating: input.rating,
