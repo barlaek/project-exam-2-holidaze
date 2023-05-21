@@ -33,14 +33,14 @@ const schema = yup.object({
             parking: yup.boolean().default(false),
             breakfast: yup.boolean().default(false),
             pets: yup.boolean().default(false),
-        }),
+        }).default(null),
     location: yup.object().shape({
         address: yup.string().default('Unkown'),
         city: yup.string().default('Unkown'),
         zip: yup.string().default('Unkown'),
         country: yup.string().default('Unkown'),
         continent: yup.string().default('Unkown'),
-    }),
+    }).default(null),
 });
 
 export function CreateVenue() {
@@ -68,7 +68,7 @@ export function CreateVenue() {
                 wifi: input.wifi,
                 parking: input.parking,
                 breakfast: input.breakfast,
-                pets: input.pets
+                pets: input.pets,
             },
             location: {
                 address: input.address,
@@ -105,30 +105,30 @@ export function CreateVenue() {
                 <p>{errors.price?.message}</p>
                 <input {...register('maxGuests')} placeholder='Maximum number of guests'/>
                 <p>{errors.maxGuests?.message}</p>
-                <fieldset  {...register('meta')}>
-                    <select {...register('wifi')}>
+                <fieldset>
+                    <select {...register('meta.wifi')}>
                         <option value={true}>Wifi</option>
                         <option value={false}>No wifi</option>
                     </select>
-                    <select {...register('parking')}>
+                    <select {...register('meta.parking')}>
                         <option value={true}>Parking</option>
                         <option value={false}>No parking</option>
                     </select>
-                    <select {...register('breakfast')}>
+                    <select {...register('meta.breakfast')}>
                         <option value={true}>Breakfast</option>
                         <option value={false}>No breakfast</option>
                     </select>
-                    <select {...register('pets')}>
+                    <select {...register('meta.pets')}>
                         <option value={true}>Pets</option>
                         <option value={false}>No pets</option>
                     </select>
                 </fieldset>
-                <fieldset {...register('location')}>
-                    <input {...register('address')} placeholder='Address of the venue'/>
-                    <input {...register('city')} placeholder='City of the venue'/>
-                    <input {...register('zip')} placeholder='Zip code of the venue'/>
-                    <input {...register('country')} placeholder='Country of the venue'/>
-                    <input {...register('continent')} placeholder='Continent of the venue'/>
+                <fieldset>
+                    <input {...register('location.address')} placeholder='Address of the venue'/>
+                    <input {...register('location.city')} placeholder='City of the venue'/>
+                    <input {...register('location.zip')} placeholder='Zip code of the venue'/>
+                    <input {...register('location.country')} placeholder='Country of the venue'/>
+                    <input {...register('location.continent')} placeholder='Continent of the venue'/>
                 </fieldset>
                 <input type='submit' value='Create new venue' />
             </form>
