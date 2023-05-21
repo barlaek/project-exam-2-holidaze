@@ -62,7 +62,7 @@ export function CreateVenue() {
         const body = {
             name: input.name,
             description: input.description,
-            media: input.media,
+            media: [input.media],
             price: input.price,
             maxGuests: input.maxGuests,
             meta: {

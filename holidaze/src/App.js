@@ -26,7 +26,7 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Registration />}/>
             <Route path='/profiles/:name' element={<Dashboard />}/>
-            <Route path='/createvenue' element={<CreateVenuePage />} />
+            <Route path='/venues/createvenue' element={<CreateVenuePage />} />
           </Route>
         </Routes>
       </UserContext.Provider>
