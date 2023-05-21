@@ -40,8 +40,6 @@ const schema = yup.object({
         zip: yup.string().default('Unkown'),
         country: yup.string().default('Unkown'),
         continent: yup.string().default('Unkown'),
-        lat: yup.number().default(0),
-        lng: yup.number().default(0),
     }),
 });
 
@@ -78,8 +76,6 @@ export function CreateVenue() {
                 zip: input.zip,
                 country: input.country,
                 continent: input.continent,
-                lat: input.lat,
-                lng: input.lng,
             },
         }
         console.log(body);
@@ -133,8 +129,6 @@ export function CreateVenue() {
                     <input {...register('zip')} placeholder='Zip code of the venue'/>
                     <input {...register('country')} placeholder='Country of the venue'/>
                     <input {...register('continent')} placeholder='Continent of the venue'/>
-                    <input {...register('lat')} placeholder='Latitude of the location'/>
-                    <input {...register('lng')} placeholder='Longditude of the location'/>
                 </fieldset>
                 <input type='submit' value='Create new venue' />
             </form>
