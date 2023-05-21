@@ -7,7 +7,7 @@ export function CuratedVenues() {
     const name = localData.name
     const token = localData.accessToken;
     
-    const { data, loading, error } = ApiHook(`${profilesUrl}/${name}/bookings`, {
+    const { data, loading, error } = ApiHook(`${profilesUrl}/${name}/venues`, {
         method: 'get',
         headers: {
             'Content-type': 'application/json',
@@ -23,7 +23,7 @@ export function CuratedVenues() {
             {data.map((venue) => {
                 return <div>
                     <Link to={`/venues/${venue.id}`}>
-                        <img src={venue.id} alt="picture of venue"/>
+                        <img src={venue.media} alt="picture of venue"/>
                         <h3>{venue.name}</h3>
                         <p>Price: {venue.price}</p>
                         <p>Number of guests: {venue.guests}</p>
