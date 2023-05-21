@@ -10,16 +10,17 @@ const schema = yup.object({
     description: yup
         .string()
         .required('Please provide description of the venue'),
+    media: yup.array().of(yup.string().url()),
     // media: yup
     //     .string()
     //     .url(),
         // .array().of(yup.string().url()),
-    media: yup.mixed()
-        .when('media', {
-            is: Array.media,
-            then: yup.array().of(yup.string().url()),
-            otherwise: yup.string().url(),
-            }),
+    // media: yup.mixed()
+    //     .when('media', {
+    //         is: Array.media,
+    //         then: yup.array().of(yup.string().url()),
+    //         otherwise: yup.string().url(),
+    //         }),
     price: yup
         .number()
         .required('Please provide a price quote'),
