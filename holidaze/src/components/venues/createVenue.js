@@ -22,13 +22,11 @@ const schema = yup.object({
         //     }),
     price: yup
         .number()
-        .required(),
+        .required('Please provide a price quote'),
     maxGuests: yup
         .number()
-        .required(),
-    rating: yup
-        .number()
-        .default(0),
+        .min(1)
+        .required('Please provide a maximum number of guests'),
     meta: yup
         .object().shape({
             wifi: yup.boolean().default(false),
@@ -45,7 +43,7 @@ const schema = yup.object({
         lat: yup.number().default(0),
         lng: yup.number().default(0),
     }),
-}).required();
+});
 
 export function CreateVenue() {
     const {
@@ -68,7 +66,6 @@ export function CreateVenue() {
             media: input.media,
             price: input.price,
             maxGuests: input.maxGuests,
-            rating: input.rating,
             meta: {
                 wifi: input.wifi,
                 parking: input.parking,
@@ -102,16 +99,17 @@ export function CreateVenue() {
     }
 
     return (
-        <div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input {...register('name')} placeholder='Name of the location'/>
                 <p>{errors.name?.message}</p>
                 <input {...register('description')} placeholder='Describe the location'/>
+                <p>{errors.description?.message}</p>
                 <input {...register('media')} placeholder='Images of the location'/>
                 <input {...register('price')} placeholder='Price of the location per night'/>
+                <p>{errors.price?.message}</p>
                 <input {...register('maxGuests')} placeholder='Maximum number of guests'/>
-                <input {...register('rating')} placeholder='Rating of the location'/>
-                <div  {...register('meta')}>
+                <p>{errors.maxGuests?.message}</p>
+                <fieldset  {...register('meta')}>
                     <select {...register('wifi')}>
                         <option value={true}>Wifi</option>
                         <option value={false}>No wifi</option>
@@ -128,8 +126,8 @@ export function CreateVenue() {
                         <option value={true}>Pets</option>
                         <option value={false}>No pets</option>
                     </select>
-                </div>
-                <div {...register('location')}>
+                </fieldset>
+                <fieldset {...register('location')}>
                     <input {...register('address')} placeholder='Address of the venue'/>
                     <input {...register('city')} placeholder='City of the venue'/>
                     <input {...register('zip')} placeholder='Zip code of the venue'/>
@@ -137,9 +135,8 @@ export function CreateVenue() {
                     <input {...register('continent')} placeholder='Continent of the venue'/>
                     <input {...register('lat')} placeholder='Latitude of the location'/>
                     <input {...register('lng')} placeholder='Longditude of the location'/>
-                </div>
+                </fieldset>
                 <input type='submit' value='Create new venue' />
             </form>
-        </div>
     )
 }
