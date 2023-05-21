@@ -119,7 +119,7 @@ export function CreateVenue() {
                     <input {...register('lat')} placeholder='Latitude of the location'/>
                     <input {...register('lng')} placeholder='Longditude of the location'/>
                 </div>
-
+                <input type='submit' value='Create new venue' />
             </form>
         </div>
     )
