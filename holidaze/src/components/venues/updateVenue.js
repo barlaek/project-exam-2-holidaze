@@ -2,32 +2,37 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { venuesUrl } from '../api/endpoints';
+import { useParams } from 'react-router-dom';
 
 const schema = yup.object({
     name: yup
-        .string(),
+        .string()
+        .required('Please enter the name of your venue'),
     description: yup
-        .string(),
+        .string()
+        .required('Please provide description of the venue'),
     media: yup.string().url(),
     price: yup
-        .number(),
+        .number()
+        .required('Please provide a price quote'),
     maxGuests: yup
         .number()
-        .min(1),
+        .min(1)
+        .required('Please provide a maximum number of guests'),
     meta: yup
         .object().shape({
             wifi: yup.boolean().default(false),
             parking: yup.boolean().default(false),
             breakfast: yup.boolean().default(false),
             pets: yup.boolean().default(false),
-        }),
+        }).default(null),
     location: yup.object().shape({
         address: yup.string().default('Unkown'),
         city: yup.string().default('Unkown'),
         zip: yup.string().default('Unkown'),
         country: yup.string().default('Unkown'),
         continent: yup.string().default('Unkown'),
-    }),
+    }).default(null),
 });
 
 export function UpdateVenue() {
@@ -42,6 +47,8 @@ export function UpdateVenue() {
     const localData = JSON.parse(localStorage.getItem('userBody'))
     const name = localData.name
     const token = localData.accessToken;
+
+    let id = useParams();
 
     function onSubmit(input) {
         console.log(input)
@@ -67,7 +74,7 @@ export function UpdateVenue() {
         }
         console.log(body);
 
-        fetch(`${venuesUrl}`, {
+        fetch(`${venuesUrl}/${id}`, {
             method: 'put',
             headers: {
                 'Content-type': 'application/json',
@@ -84,10 +91,13 @@ export function UpdateVenue() {
     return (
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input {...register('name')} placeholder='Name of the location'/>
+                <p>{errors.name?.message}</p>
                 <input {...register('description')} placeholder='Describe the location'/>
+                <p>{errors.description?.message}</p>
                 <input {...register('media')} placeholder='Images of the location'/>
                 <input {...register('price')} placeholder='Price of the location per night'/>
                 <input {...register('maxGuests')} placeholder='Maximum number of guests'/>
+                <p>{errors.maxGuests?.message}</p>
                 <fieldset>
                     <select {...register('meta.wifi')}>
                         <option value={true}>Wifi</option>
@@ -113,7 +123,7 @@ export function UpdateVenue() {
                     <input {...register('location.country')} placeholder='Country of the venue'/>
                     <input {...register('location.continent')} placeholder='Continent of the venue'/>
                 </fieldset>
-                <input type='submit' value='Create new venue' />
+                <input type='submit' value='Updata venue' />
             </form>
     )
 }

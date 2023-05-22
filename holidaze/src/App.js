@@ -28,7 +28,7 @@ function App() {
             <Route path='/register' element={<Registration />}/>
             <Route path='/profiles/:name' element={<Dashboard />}/>
             <Route path='/venues/createvenue' element={<CreateVenuePage />} />
-            <Route path='/venues/:id/updatevenue' element={<UpdateVenue />}/>
+            <Route path='/venues/:id' element={<UpdateVenue />}/>
           </Route>
         </Routes>
       </UserContext.Provider>
