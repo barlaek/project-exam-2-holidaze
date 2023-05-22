@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { venuesUrl } from '../api/endpoints';
+import { useNavigate } from 'react-router-dom';
 
 const schema = yup.object({
     name: yup
@@ -35,6 +36,8 @@ const schema = yup.object({
 });
 
 export function CreateVenue() {
+    const navigate = useNavigate();
+
     const {
         register,
         handleSubmit,
@@ -80,6 +83,9 @@ export function CreateVenue() {
             body: JSON.stringify(body)
         }).then(response => {
             console.log(response)
+            if(response.ok) {
+                navigate(`/profiles/${name}`)
+            }
         }).catch(error => {
             console.log(error)
         })

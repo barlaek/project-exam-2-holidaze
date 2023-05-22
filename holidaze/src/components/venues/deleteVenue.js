@@ -2,11 +2,13 @@ import { venuesUrl } from "../api/endpoints"
 
 export function DeleteVenue(props) {
 
+    const id = props.id
+
     const localData = JSON.parse(localStorage.getItem('userBody'));
     const token = localData.accessToken;
 
     function deleteVenue() {
-        fetch(`${venuesUrl}/${props.id}`, {
+        fetch(`${venuesUrl}/${id}`, {
             method: 'delete',
             headers: {
                 'Content-type': 'application/json',
@@ -14,11 +16,10 @@ export function DeleteVenue(props) {
             }
         }).then(response => {
             console.log(response);
-        }).then(data => {
-            console.log(data)
-        }
-
-        ).catch(error => {
+            if(response.ok) {
+                window.location.reload();
+            }
+        }).catch(error => {
             console.log(error)
         })
     }

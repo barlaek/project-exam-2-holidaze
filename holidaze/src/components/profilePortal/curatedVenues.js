@@ -24,7 +24,7 @@ export function CuratedVenues() {
             {data.map((venue) => {
                 return <div>
                     <Link to={`/venues/updatevenue/${venue.id}`}><button>Update venue</button></Link>
-                    <DeleteVenue value={venue.id} />
+                    <DeleteVenue id={venue.id} />
                     <Link to={`/venues/${venue.id}`}>
                         <img src={venue.media} alt="picture of venue"/>
                         <h3>{venue.name}</h3>
