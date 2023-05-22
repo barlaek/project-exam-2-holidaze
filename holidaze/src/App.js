@@ -8,6 +8,7 @@ import { Registration } from './components/authentication/registerUser';
 import { createContext, useState } from 'react';
 import { Dashboard } from './components/profilePortal/dashboard';
 import { CreateVenuePage } from './components/venues/createVenuePage';
+import { UpdateVenue } from './components/venues/updateVenue';
 
 export const UserContext = createContext(null);
 
@@ -27,6 +28,7 @@ function App() {
             <Route path='/register' element={<Registration />}/>
             <Route path='/profiles/:name' element={<Dashboard />}/>
             <Route path='/venues/createvenue' element={<CreateVenuePage />} />
+            <Route path='/venues/:id/updatevenue' element={<UpdateVenue />}/>
           </Route>
         </Routes>
       </UserContext.Provider>
