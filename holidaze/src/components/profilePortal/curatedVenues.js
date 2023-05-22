@@ -25,7 +25,7 @@ export function CuratedVenues() {
                     <Link to={`/venues/${venue.id}`}>
                         <img src={venue.media} alt="picture of venue"/>
                         <h3>{venue.name}</h3>
-                        <Link to={`/venues/${venue.id}`}><button>Update venue</button></Link>
+                        <Link to={`/venues/updatevenue/${venue.id}`}><button>Update venue</button></Link>
                         <p>Price: {venue.price}</p>
                         <p>Number of guests: {venue.guests}</p>
                         <p>Created: {venue.created}</p>

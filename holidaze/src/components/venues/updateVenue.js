@@ -11,7 +11,7 @@ const schema = yup.object({
     description: yup
         .string()
         .required('Please provide description of the venue'),
-    media: yup.string().url(),
+    media: yup.string().url().default(''),
     price: yup
         .number()
         .required('Please provide a price quote'),
@@ -48,7 +48,7 @@ export function UpdateVenue() {
     const name = localData.name
     const token = localData.accessToken;
 
-    let id = useParams();
+    let { id } = useParams();
 
     function onSubmit(input) {
         console.log(input)
