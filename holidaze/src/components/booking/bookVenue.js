@@ -3,16 +3,18 @@ import Calendar from 'react-calendar'
 
 export function BookVenue() {
 
-    const [ date, setDate ] = useState(new Date())
+    const [ dateFrom, setDateFrom ] = useState(new Date());
+    const [ dateTo, setDateTo ] = useState(new Date());
+    const [ guests, setGuest ] = useState('');
 
 
-    const onChange = date => {
-        
-        console.log(date);
+    const submitBooking = (e) => {
+        e.preventDefault();
 
         const body = {
-            dateFrom: date.toString(),
-            dateTo: date.toString(),
+            dateFrom: dateFrom.toString(),
+            dateTo: dateTo.toString(),
+            guests: parseInt(guests),
         }
 
         console.log(body);
@@ -20,9 +22,20 @@ export function BookVenue() {
 
     return (
         <div>
-            <Calendar onChange={onChange} value={date} />
-            <input type="number" placeholder="Number of guests"/> 
-            <button>Book venue</button>
+            <form>
+                <Calendar 
+                    onChange={setDateFrom} 
+                    value={dateFrom}/>
+                <Calendar 
+                    onChange={setDateTo} 
+                    value={dateTo}/>
+                <input 
+                    type="text" 
+                    value={guests} 
+                    onChange={(e) => setGuest(e.target.value)} 
+                    placeholder="Number of guests"/> 
+                <button onClick={submitBooking}>Book venue</button>
+            </form>
         </div>
     )
 }
