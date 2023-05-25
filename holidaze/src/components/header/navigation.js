@@ -16,7 +16,7 @@ export function Navigation() {
             <div>
                 <LogBtn />
                 <ProfileBtn />
-                {localData ? (
+                {localData.venueManager ? (
                     <CvpBtn />
                 ) : (
                     <div></div>
