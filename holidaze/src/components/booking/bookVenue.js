@@ -34,6 +34,9 @@ export function BookVenue() {
             body: JSON.stringify(body),
         }).then(response => {
             console.log(response)
+            if(response.ok) {
+                window.location.reload();
+            }
         }).then(error => {
             console.log(error);
         })
@@ -45,9 +48,11 @@ export function BookVenue() {
                 <Calendar 
                     onChange={setDateFrom} 
                     value={dateFrom}/>
+                    <p>From date: {dateFrom.toDateString()}</p>
                 <Calendar 
                     onChange={setDateTo} 
                     value={dateTo}/>
+                    <p>To date: {dateTo.toDateString()}</p>
                 <input 
                     type="text" 
                     value={guests} 
