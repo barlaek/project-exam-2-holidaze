@@ -6,8 +6,6 @@ import { CvpBtn } from "../venues/cvpBtn";
 
 export function Navigation() {
 
-    const localData = localStorage.getItem('userBody');
-
     return (
         <div>
             <div>
@@ -16,11 +14,7 @@ export function Navigation() {
             <div>
                 <LogBtn />
                 <ProfileBtn />
-                {localData.venueManager ? (
-                    <CvpBtn />
-                ) : (
-                    <div></div>
-                )}
+                <CvpBtn />
             </div>
         </div>
     )
