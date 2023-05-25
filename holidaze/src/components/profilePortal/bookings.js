@@ -23,12 +23,10 @@ export function Bookings() {
             <h2>Your bookings</h2>
             {data.map((booking) => {
                 return <div>
-                    <Link to={`/venues/${booking.id}`}>
-                        <p>From {booking.dateFrom} to {booking.dateTo}</p>
-                        <p>Number of guests: {booking.guests}</p>
-                        <p>Created: {booking.created}</p>
-                        <p>Last uppdated: {booking.updated}</p>
-                    </Link>
+                    <Link to={`/venues/${booking.id}`}><h3>See booking</h3></Link>
+                    <p>Booking from {booking.dateFrom} to {booking.dateTo}</p>
+                    <p>Number of guests: {booking.guests}</p>
+                    <p>Booking was last uppdated: {booking.updated}</p>
                 </div>
             })}
         </div>
