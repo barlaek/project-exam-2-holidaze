@@ -103,22 +103,38 @@ export function CreateVenue() {
                 <input {...register('maxGuests')} placeholder='Maximum number of guests'/>
                 <p>{errors.maxGuests?.message}</p>
                 <fieldset>
-                    <select {...register('meta.wifi')}>
-                        <option value={true}>Wifi</option>
-                        <option value={false}>No wifi</option>
-                    </select>
-                    <select {...register('meta.parking')}>
-                        <option value={true}>Parking</option>
-                        <option value={false}>No parking</option>
-                    </select>
-                    <select {...register('meta.breakfast')}>
-                        <option value={true}>Breakfast</option>
-                        <option value={false}>No breakfast</option>
-                    </select>
-                    <select {...register('meta.pets')}>
-                        <option value={true}>Pets</option>
-                        <option value={false}>No pets</option>
-                    </select>
+                    <div>
+                        <p>Wifi options</p>
+                        <select {...register('meta.wifi')}>
+                            <option>Select wifi</option>
+                            <option value={true}>Wifi</option>
+                            <option value={false}>No wifi</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p>Parking options</p>
+                        <select {...register('meta.parking')}>
+                            <option>Select parking</option>
+                            <option value={true}>Parking</option>
+                            <option value={false}>No parking</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p>Breakfast options</p>
+                        <select {...register('meta.breakfast')}>
+                            <option>Select breakfast</option>
+                            <option value={true}>Breakfast</option>
+                            <option value={false}>No breakfast</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p>Pet options</p>
+                        <select {...register('meta.pets')}>
+                            <option>Select pets</option>
+                            <option value={true}>Pets</option>
+                            <option value={false}>No pets</option>
+                        </select>
+                    </div>
                 </fieldset>
                 <fieldset>
                     <input {...register('location.address')} placeholder='Address of the venue'/>
