@@ -10,12 +10,10 @@ export function Logout() {
     const navigate = useNavigate();
 
     function logOut() {
-        localStorage.removeItem('userBody');
-        console.log(localStorage);
-        setCurrentUser(null)
-        console.log(currentUser);
-        if(!localStorage) {
+        if(localStorage) {
             navigate('/');
+            localStorage.removeItem('userBody');
+            setCurrentUser(null)
         }
 
     }
