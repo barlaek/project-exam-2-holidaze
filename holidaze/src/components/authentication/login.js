@@ -70,13 +70,16 @@ export function Login() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input {...register('email')} placeholder='Email'/>
-                <p>{errors.email?.message}</p>
-                <input type='password' {...register('password')} placeholder='Password'/>
-                <p>{errors.password?.message}</p>
-                <input type='submit' value='Log in'/>
-            </form>
+            <h1>Log in</h1>
+            <fieldset>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <input {...register('email')} placeholder='Email'/>
+                    <p>{errors.email?.message}</p>
+                    <input type='password' {...register('password')} placeholder='Password'/>
+                    <p>{errors.password?.message}</p>
+                    <input type='submit' value='Log in'/>
+                </form>
+            </fieldset>
             <Link to="/register"><p>Register an account</p></Link>
         </div>
     )

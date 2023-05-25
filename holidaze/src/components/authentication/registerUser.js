@@ -65,19 +65,40 @@ export function Registration() {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <select {...register('venueManager')}>
-                <option value={false}>Guest</option>
-                <option value={true}>Venue manager</option>
-            </select>
-            <input {...register('name')} placeholder="Name"/>
-            <p>{errors.name?.message}</p>
-            <input {...register('email')} placeholder="email"/>
-            <p>{errors.email?.message}</p>
-            <input {...register('password')} placeholder="password" type="password"/>
-            <p>{errors.password?.message}</p>
-            <input {...register('avatar')} placeholder="avatar"/>
-            <input type="submit" value='Register'/>
-        </form>
+        <div>
+            <h1>Register an account</h1>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <fieldset>
+                    <div>
+                        <p>Please select role</p>
+                        <select {...register('venueManager')}>
+                            <option>Select role</option>
+                            <option value={false}>Guest</option>
+                            <option value={true}>Venue manager</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p>Please register a name</p>
+                        <input {...register('name')} placeholder="Name"/>
+                        <p>{errors.name?.message}</p>
+                    </div>
+                    <div>
+                        <p>Please register an email</p>
+                        <input {...register('email')} placeholder="email"/>
+                        <p>{errors.email?.message}</p>
+                    </div>
+                    <div>
+                        <p>Please register a password</p>
+                        <input {...register('password')} placeholder="password" type="password"/>
+                        <p>{errors.password?.message}</p>
+                    </div>
+                    <div>
+                        <p>Please submit an avatar image</p>
+                        <input {...register('avatar')} placeholder="avatar"/>
+                    </div>
+                    <input type="submit" value='Register'/>
+                </fieldset>
+            </form>
+        </div>
     )
 }
