@@ -10,7 +10,7 @@ export function Dashboard() {
     const localData = JSON.parse(localStorage.getItem('userBody'))
     const name = localData.name
     const token = localData.accessToken;
-    const navigate = useNavigate();
+    const venueManager = localData.venueManager;
 
     const { data, loading, error } = ApiHook(`${profilesUrl}/${name}`, {
         method: 'get',
@@ -24,21 +24,19 @@ export function Dashboard() {
 
     return (
         <div>
-            {localData ? (
-                <div>
-                    <div>
-                        <ProfilePopulation profileData={data} />
-                    </div>
-                    <div>
-                        <Bookings />
-                    </div>
-                    <div>
-                        <CuratedVenues />
-                    </div>
-                </div>
-            ) : (
-                window.location.replace('/')
-            )}
+            <div>
+                <ProfilePopulation profileData={data} />
+            </div>
+            <div>
+                <Bookings />
+            </div>
+            <div>
+                {venueManager ? (
+                    <CuratedVenues />
+                ) : (
+                    <div></div>
+                )}
+            </div>
         </div>
     )
 }
