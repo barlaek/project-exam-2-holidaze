@@ -11,7 +11,11 @@ export function VenuePopulation(props) {
 
     return (
         <div>
-            <img src={venueData.media} alt="pictures of the venue" />
+            <div>
+                {venueData.media.map((img) => {
+                    return <img src={img} alt="picture(s) of the venue" />
+                })}
+            </div>
             <div>
                 <BookVenue />
             </div>
