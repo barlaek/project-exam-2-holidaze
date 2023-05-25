@@ -2,16 +2,17 @@ import { Link } from "react-router-dom"
 
 export function CvpBtn() {
 
-    const localData = localStorage.getItem('userBody');
-    const venueManager = localData.venueManager;
+    const viewButton = () => {
+        const localData = localStorage.getItem('userBody');
+        const venueManager = localData.venueManager;
+        if(venueManager) {
+            return <Link to="/venues/createvenue"><button>Create venue</button></Link>
+        } else {
+            return <div></div>
+        }
+    }
 
     return (
-        <div>
-            {venueManager ? (
-                <Link to="/venues/createvenue"><button>Create venue</button></Link>
-            ) : (
-                <div></div>
-            )}
-        </div>
+        <div value={viewButton}></div>
     )
 }
