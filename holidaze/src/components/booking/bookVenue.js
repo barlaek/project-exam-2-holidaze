@@ -2,6 +2,7 @@ import { useState } from "react";
 import Calendar from 'react-calendar'
 import { useParams } from "react-router-dom";
 import { bookingsUrl } from "../api/endpoints";
+import 'react-calendar/dist/Calendar.css';
 
 export function BookVenue() {
 
@@ -45,14 +46,17 @@ export function BookVenue() {
     return (
         <div>
             <form>
+                <h3>Select arrival date:</h3>
                 <Calendar 
                     onChange={setDateFrom} 
                     value={dateFrom}/>
                     <p>From date: {dateFrom.toDateString()}</p>
+                    <h3>Select departure date:</h3>
                 <Calendar 
                     onChange={setDateTo} 
                     value={dateTo}/>
                     <p>To date: {dateTo.toDateString()}</p>
+                    <h3>Enter number of guests:</h3>
                 <input 
                     type="text" 
                     value={guests} 
