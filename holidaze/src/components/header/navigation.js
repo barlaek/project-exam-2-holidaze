@@ -5,12 +5,23 @@ import { ProfileBtn } from "../profilePortal/profileNavBTN";
 import { CvpBtn } from "../venues/cvpBtn";
 
 export function Navigation() {
+
+    const localData = localStorage.getItem('userBody');
+
     return (
         <div>
-            <SearchBar />
-            <LogBtn />
-            <ProfileBtn />
-            <CvpBtn />
+            <div>
+                <SearchBar />
+            </div>
+            <div>
+                <LogBtn />
+                <ProfileBtn />
+                {localData ? (
+                    <CvpBtn />
+                ) : (
+                    <div></div>
+                )}
+            </div>
         </div>
     )
 }

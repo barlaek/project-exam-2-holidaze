@@ -4,6 +4,12 @@ export function ProfileBtn() {
     const localData = JSON.parse(localStorage.getItem('userBody'))
 
     return (
-        <Link to={`/profiles/${localData.name}`}><button>Profile</button></Link>
+        <div>
+            {localData ? (
+                <Link to={`/profiles/${localData.name}`}><button>Profile</button></Link>
+            ) : (
+                <Link to={`/login`}><button>Profile</button></Link>
+            )}
+        </div>
     )
 }

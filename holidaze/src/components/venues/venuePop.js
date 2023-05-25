@@ -1,9 +1,12 @@
 import { useContext } from "react";
 import { UserContext } from "../../App";
 import { BookVenue } from "../booking/bookVenue";
+import { Link } from "react-router-dom";
 
 export function VenuePopulation(props) {
     const { currentUser, setCurrentUser } = useContext(UserContext);
+
+    const localData = localStorage.getItem('userBody');
     
     const venueData = props.venueData;
 
@@ -17,7 +20,14 @@ export function VenuePopulation(props) {
                 })}
             </div>
             <div>
-                <BookVenue />
+                {localData ? (
+                    <BookVenue />
+                ) : (
+                    <div>
+                        <p>You must be logged in to book a venue</p>
+                        <Link to={'/login'}><button>Log in</button></Link>
+                    </div>
+                )}
             </div>
             <div>
                 <div>
