@@ -1,13 +1,16 @@
+import { RenderCvpBtn } from "./renderCvpBtn"
+import { Link } from "react-router-dom"
+
 export function CvpBtn() {
-    const localData = JSON.parse(localStorage.getItem("userBody"))
+    const localData = localStorage.getItem("userBody")
     
 
     return (
         <div>
             {localData ? (
-                <button>Create venue</button>
+                <Link to="/venues/createvenue"><RenderCvpBtn /></Link>
             ) : (
-                <p>Butt</p>
+                <div></div>
             )}
         </div>
     )
