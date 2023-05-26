@@ -11,7 +11,10 @@ const schema = yup.object({
     description: yup
         .string()
         .required('Please provide description of the venue'),
-    media: yup.string().url().default(''),
+    media: yup
+        .string()
+        .url("Please provide a valid image url")
+        .default(''),
     price: yup
         .number()
         .required('Please provide a price quote'),
@@ -90,38 +93,92 @@ export function UpdateVenue() {
 
     return (
             <form onSubmit={handleSubmit(onSubmit)}>
-                <input {...register('name')} placeholder='Name of the location'/>
-                <p>{errors.name?.message}</p>
-                <input {...register('description')} placeholder='Describe the location'/>
-                <p>{errors.description?.message}</p>
-                <input {...register('media')} placeholder='Images of the location'/>
-                <input {...register('price')} placeholder='Price of the location per night'/>
-                <input {...register('maxGuests')} placeholder='Maximum number of guests'/>
-                <p>{errors.maxGuests?.message}</p>
+                <h1>Update venue</h1>
                 <fieldset>
-                    <select {...register('meta.wifi')}>
-                        <option value={true}>Wifi</option>
-                        <option value={false}>No wifi</option>
-                    </select>
-                    <select {...register('meta.parking')}>
-                        <option value={true}>Parking</option>
-                        <option value={false}>No parking</option>
-                    </select>
-                    <select {...register('meta.breakfast')}>
-                        <option value={true}>Breakfast</option>
-                        <option value={false}>No breakfast</option>
-                    </select>
-                    <select {...register('meta.pets')}>
-                        <option value={true}>Pets</option>
-                        <option value={false}>No pets</option>
-                    </select>
+                    <h2>Update essential information</h2>
+                    <div>
+                        <p>Update venue name</p>
+                        <input {...register('name')} placeholder='Name of the location'/>
+                        <p>{errors.name?.message}</p>
+                    </div>
+                    <div>
+                        <p>Update venue description</p>
+                        <input {...register('description')} placeholder='Describe the location'/>
+                        <p>{errors.description?.message}</p>
+                    </div>
+                    <div>
+                        <p>Update venue images</p>
+                        <input {...register('media')} placeholder='Images of the location'/>
+                        <p>{errors.media?.message}</p>
+                    </div>
+                    <div>
+                        <p>Update price</p>
+                        <input {...register('price')} placeholder='Price of the location per night'/>
+                        <p>{errors.price?.message}</p>
+                    </div>
+                    <div>
+                        <p>Update maximum number of guests</p>
+                        <input {...register('maxGuests')} placeholder='Maximum number of guests'/>
+                        <p>{errors.maxGuests?.message}</p>
+                    </div>
                 </fieldset>
                 <fieldset>
-                    <input {...register('location.address')} placeholder='Address of the venue'/>
-                    <input {...register('location.city')} placeholder='City of the venue'/>
-                    <input {...register('location.zip')} placeholder='Zip code of the venue'/>
-                    <input {...register('location.country')} placeholder='Country of the venue'/>
-                    <input {...register('location.continent')} placeholder='Continent of the venue'/>
+                    <h2>Update additional information</h2>
+                    <div>
+                        <p>Update wifi options</p>
+                        <select {...register('meta.wifi')}>
+                            <option>Select wifi option</option>
+                            <option value={true}>Wifi</option>
+                            <option value={false}>No wifi</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p>Update parking option</p>
+                        <select {...register('meta.parking')}>
+                            <option>Select parking option</option>
+                            <option value={true}>Parking</option>
+                            <option value={false}>No parking</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p>Update breakfast option</p>
+                        <select {...register('meta.breakfast')}>
+                            <option>Select breakfast option</option>
+                            <option value={true}>Breakfast</option>
+                            <option value={false}>No breakfast</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p>Update pets option</p>
+                        <select {...register('meta.pets')}>
+                            <option>Select pets option</option>
+                            <option value={true}>Pets</option>
+                            <option value={false}>No pets</option>
+                        </select>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <h2>Location information</h2>
+                    <div>
+                        <p>Address</p>
+                        <input {...register('location.address')} placeholder='Address of the venue'/>
+                    </div>
+                    <div>
+                        <p>City</p>
+                        <input {...register('location.city')} placeholder='City of the venue'/>
+                    </div>
+                    <div>
+                        <p>Zip code</p>
+                        <input {...register('location.zip')} placeholder='Zip code of the venue'/>
+                    </div>
+                    <div>
+                        <p>Country</p>
+                        <input {...register('location.country')} placeholder='Country of the venue'/>
+                    </div>
+                    <div>
+                        <p>Continent</p>
+                        <input {...register('location.continent')} placeholder='Continent of the venue'/>
+                    </div>
                 </fieldset>
                 <input type='submit' value='Updata venue' />
             </form>
