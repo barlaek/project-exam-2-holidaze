@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { venuesUrl } from '../api/endpoints';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const schema = yup.object({
     name: yup
@@ -24,10 +24,10 @@ const schema = yup.object({
         .required('Please provide a maximum number of guests'),
     meta: yup
         .object().shape({
-            wifi: yup.boolean().default(false),
-            parking: yup.boolean().default(false),
-            breakfast: yup.boolean().default(false),
-            pets: yup.boolean().default(false),
+            wifi: yup.boolean(),
+            parking: yup.boolean(),
+            breakfast: yup.boolean(),
+            pets: yup.boolean(),
         }).default(null),
     location: yup.object().shape({
         address: yup.string().default('Unkown'),
@@ -48,8 +48,9 @@ export function UpdateVenue() {
     });
 
     const localData = JSON.parse(localStorage.getItem('userBody'))
-    const name = localData.name
+    const name = localData.name;
     const token = localData.accessToken;
+    const navigate = useNavigate();
 
     let { id } = useParams();
 
@@ -86,6 +87,11 @@ export function UpdateVenue() {
             body: JSON.stringify(body)
         }).then(response => {
             console.log(response)
+            // if(response.ok) {
+            //     navigate(`/profiles/${name}`)
+            // }
+        }).then(data => {
+            console.log(data)
         }).catch(error => {
             console.log(error)
         })
