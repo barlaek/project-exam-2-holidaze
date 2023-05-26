@@ -27,7 +27,7 @@ export function CuratedVenues() {
                     <div>
                         <h3>{venue.name}</h3>
                         <p>Price: {venue.price}</p>
-                        <p>Number of guests: {venue.guests}</p>
+                        <p>Number of guests: {venue.maxGuests}</p>
                         <p>Created: {venue.created}</p>
                         <p>Last uppdated: {venue.updated}</p>
                         <p>{venue.description}</p>

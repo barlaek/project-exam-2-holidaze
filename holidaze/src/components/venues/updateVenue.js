@@ -63,17 +63,17 @@ export function UpdateVenue() {
             price: input.price,
             maxGuests: input.maxGuests,
             meta: {
-                wifi: input.wifi,
-                parking: input.parking,
-                breakfast: input.breakfast,
-                pets: input.pets,
+                wifi: input.meta.wifi,
+                parking: input.meta.parking,
+                breakfast: input.meta.breakfast,
+                pets: input.meta.pets,
             },
             location: {
-                address: input.address,
-                city: input.city,
-                zip: input.zip,
-                country: input.country,
-                continent: input.continent,
+                address: input.location.address,
+                city: input.location.city,
+                zip: input.location.zip,
+                country: input.location.country,
+                continent: input.location.continent,
             },
         }
         console.log(body);
