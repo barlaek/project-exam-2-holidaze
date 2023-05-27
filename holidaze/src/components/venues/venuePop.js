@@ -21,9 +21,7 @@ export function VenuePopulation(props) {
     return (
         <div>
             <div>
-                {venueData.media.map((img) => {
-                    return <img src={img} alt="picture(s) of the venue" />
-                })}
+                <img src={venueData.media} alt="picture(s) of the venue" />
             </div>
             <div>
                 {localData ? (
@@ -45,7 +43,7 @@ export function VenuePopulation(props) {
                     <h3>Information about the venue:</h3>
                     <div>
                         <h4>Location:</h4>
-                        <p>Addres: {venueData.location.address}</p>
+                        <p>Address: {venueData.location.address}</p>
                         <p>City: {venueData.location.city}</p>
                         <p>Country: {venueData.location.country}</p>
                     </div>
