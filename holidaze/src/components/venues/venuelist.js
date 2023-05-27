@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import styles from "./VenueList.module.css"
 
 /**
  * Component that populates the home page DOM.
@@ -8,11 +9,15 @@ import { Link } from "react-router-dom"
 export function VenueList(props) {
     const venue = props.venue
     return (
-        <Link to={`/venues/${venue.id}`}>
-            <img src={venue.media[0]} alt="product" />
-            <div>
-                <h3>{venue.name}</h3>
-            </div>
-        </Link>
+        <div className={styles.card}>
+            <Link to={`/venues/${venue.id}`}>
+                <div className={styles.imageContainer}>
+                    <img src={venue.media[0]} alt="product" className={styles.img}/>
+                </div>
+                <div>
+                    <h3>{venue.name}</h3>
+                </div>
+            </Link>
+        </div>
     )
 }

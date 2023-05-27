@@ -1,0 +1,14 @@
+.card {
+    max-height: 500px;
+    max-width: 398px;
+    background-color: red;
+}
+
+.img {
+    width: 100%;
+}
+
+.imageContainer {
+    max-width: 398px;
+    max-height: 370px;
+}
