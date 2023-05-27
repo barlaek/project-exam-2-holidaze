@@ -26,10 +26,10 @@ export function CuratedVenues() {
                     <img src={venue.media} alt="picture of venue"/>
                     <div>
                         <h3>{venue.name}</h3>
-                        <p>Price: {venue.price}</p>
+                        <p>Price per night: {venue.price}kr</p>
                         <p>Number of guests: {venue.maxGuests}</p>
-                        <p>Created: {venue.created}</p>
-                        <p>Last uppdated: {venue.updated}</p>
+                        <p>Created: {new Date(venue.created).toLocaleString()}</p>
+                        <p>Last uppdated: {new Date(venue.updated).toLocaleString()}</p>
                         <p>{venue.description}</p>
                     </div>
                     <div>
