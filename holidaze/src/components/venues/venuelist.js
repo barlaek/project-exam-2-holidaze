@@ -10,7 +10,7 @@ export function VenueList(props) {
     const venue = props.venue
     return (
         <div className={styles.card}>
-            <Link to={`/venues/${venue.id}`}>
+            <Link to={`/venues/${venue.id}`} className={styles.tag}>
                 <div className={styles.imageContainer}>
                     <img src={venue.media[0]} alt="product" className={styles.img}/>
                 </div>
