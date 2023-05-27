@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ApiHook } from "../api/api";
 import { venuesUrl } from "../api/endpoints";
+import styles from "./Searchbar.module.css";
 
 /**
  * Component that handles a search string and
@@ -40,11 +41,12 @@ export function SearchBar() {
 
 
     return (
-        <div>
+        <div className={styles.container}>
             <input 
                 type="text" 
                 placeholder="search" 
-                onChange={handleChange}/>
+                onChange={handleChange}
+                className={styles.input}/>
         </div>
     )
 }

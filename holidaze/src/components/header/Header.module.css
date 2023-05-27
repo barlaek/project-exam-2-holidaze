@@ -1,0 +1,6 @@
+header {
+    display: flex;
+    max-width: 1640px;
+    margin: 0 auto;
+    justify-content: center;
+}

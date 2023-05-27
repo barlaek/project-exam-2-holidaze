@@ -3,6 +3,7 @@ import { LogBtn } from "./logBtn";
 import { SearchBar } from "./searchbar";
 import { ProfileBtn } from "../profilePortal/profileNavBTN";
 import { CvpBtn } from "../venues/cvpBtn";
+import styles from "./Navigation.module.css"
 
 /**
  * Scaffolding component for navigation
@@ -11,11 +12,11 @@ import { CvpBtn } from "../venues/cvpBtn";
 export function Navigation() {
 
     return (
-        <div>
+        <div className={styles.container}>
             <div>
                 <SearchBar />
             </div>
-            <div>
+            <div className={styles.profileContainer}>
                 <LogBtn />
                 <ProfileBtn />
                 <CvpBtn />

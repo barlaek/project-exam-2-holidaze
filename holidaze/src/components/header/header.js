@@ -1,5 +1,6 @@
 import { Navigation } from "./navigation";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import styles from "./Header.module.css";
 
 /**
  * Scaffolding component that
