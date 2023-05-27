@@ -9,7 +9,7 @@ import styles from "./Header.module.css";
 export function Header() {
     return (
         <header>
-            <Link to="/"><h1>Holidaze</h1></Link>
+            <Link to="/"><h1 className={styles.logo}>Holidaze</h1></Link>
             <Navigation />
         </header>
     )

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { UserContext } from "../../App";
 import { useNavigate } from "react-router-dom";
+import styles from "../header/LogBtn.module.css";
 
 /**
  * Logout component that removes the userBody object from local storage and
@@ -20,6 +21,6 @@ export function Logout() {
     }
 
     return (
-        <button onClick={logOut}>Log out</button>
+        <button onClick={logOut} className={styles.logBtn}>Log out</button>
     )
 }

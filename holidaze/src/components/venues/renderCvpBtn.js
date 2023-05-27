@@ -1,4 +1,4 @@
-
+import styles from "../header/LogBtn.module.css";
 /**
  * Component that checks the local storage for the venueManager property and
  * @returns a conditional rendering
@@ -15,7 +15,7 @@ export const RenderCvpBtn = () =>  {
     return (
         <div>
             {venueManager ? (
-                <button>Create venue</button>
+                <button className={styles.logBtn}>Create venue</button>
             ) : (
                 <div></div>
             )}
