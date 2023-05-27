@@ -1,14 +1,24 @@
 .card {
-    max-height: 500px;
-    max-width: 398px;
-    background-color: red;
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+    min-width: 398px;
+    border-radius: 10px;
+    margin: 0 auto;
+    box-shadow: 1px 1px 1px 1px rgba(99, 99, 99, .5)
+    /* border: 1px solid rgba(99, 99, 99, .5); */
 }
 
 .img {
+    object-fit: cover;
     width: 100%;
+    min-height: 398px;
+    max-height: 398px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom: 1px solid rgba(99, 99, 99, .5);
 }
 
 .imageContainer {
-    max-width: 398px;
-    max-height: 370px;
+   margin: 0;
 }
