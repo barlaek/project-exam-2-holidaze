@@ -14,8 +14,10 @@ export function VenueList(props) {
                 <div className={styles.imageContainer}>
                     <img src={venue.media[0]} alt="product" className={styles.img}/>
                 </div>
-                <div>
+                <div className={styles.text}>
                     <h3>{venue.name}</h3>
+                    <p>Houses {venue.maxGuests} guests</p>
+                    <p>Price per night: {venue.price}kr</p>
                 </div>
             </Link>
         </div>

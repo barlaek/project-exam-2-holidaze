@@ -22,3 +22,9 @@
 .imageContainer {
    margin: 0;
 }
+
+.text {
+    display: block;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+}
