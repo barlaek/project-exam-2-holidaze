@@ -66,7 +66,7 @@ export function VenuePopulation(props) {
                                 <p>No wifi</p>
                             )}
                     </div>
-                    <p>This post was last updated: {venueData.updated}</p>
+                    <p>This post was last updated: {new Date(venueData.updated).toLocaleString()}</p>
                 </div>
             </div>
         </div>
