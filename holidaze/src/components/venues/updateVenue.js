@@ -111,9 +111,9 @@ export function UpdateVenue() {
             body: JSON.stringify(body)
         }).then(response => {
             console.log(response)
-            // if(response.ok) {
-            //     navigate(`/profiles/${name}`)
-            // }
+            if(response.ok) {
+                navigate(`/profiles/${name}`)
+            }
         }).then(data => {
             console.log(data)
         }).catch(error => {
