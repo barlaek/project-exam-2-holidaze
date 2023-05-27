@@ -1,10 +1,11 @@
-// Removes the JWT from storage, invalidating the HTTP request
-// And changes the context state to false.
-
 import { useContext } from "react";
 import { UserContext } from "../../App";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Logout component that removes the userBody object from local storage and
+ * @returns a button that handles the logout function and navigates to the home page
+ */
 export function Logout() {
     const { currentUser, setCurrentUser } = useContext(UserContext)
     const navigate = useNavigate();

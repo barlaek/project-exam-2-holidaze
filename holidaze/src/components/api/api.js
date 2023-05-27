@@ -1,5 +1,11 @@
 import React, {useEffect, useState} from 'react'
 
+/**
+ * Api hook component that takes two parameters
+ * @param {*} url 
+ * @param {*} headers 
+ * @returns endpoint data
+ */
 export function ApiHook(url, headers) {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState([false]);

@@ -4,6 +4,9 @@ import * as yup from 'yup';
 import { registerUrl } from '../api/endpoints';
 import { useNavigate } from 'react-router-dom';
 
+/**
+ * Schema object that handles registration validation
+ */
 const schema = yup.object({
     name: yup
         .string()
@@ -26,9 +29,19 @@ const schema = yup.object({
         .default(false),
 }).required();
 
+/**
+ * Registration component that
+ * @returns a registration form and posts the data to the endpoint
+ */
 export function Registration() {
+    /**
+     * Variable that handles navigation at successful registration
+     */
     const navigation = useNavigate();
 
+    /**
+     * Function that validates the schema object
+     */
     const {
         register,
         handleSubmit,
@@ -37,8 +50,15 @@ export function Registration() {
         resolver: yupResolver(schema),
     });
 
+    /**
+     * Function that handles the schema object.
+     * Takes one of @param {schema object} input 
+     */
     function onSubmit(input) {
         console.log(input)
+        /**
+         * Body object that converts the schema object to validate at endpoint
+         */
         const body = {
             name: input.name,
             email: input.email,
@@ -47,6 +67,9 @@ export function Registration() {
             venueManager: input.venueManager,
         };
 
+        /**
+         * Api function that posts the body opbject to endpoint
+         */
         fetch(`${registerUrl}`, {
             method: 'post',
             headers: {

@@ -6,6 +6,9 @@ import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { UserContext } from "../../App";
 
+/**
+ * Schema object that handles log in validation
+ */
 const schema = yup.object({
     email: yup
         .string()
@@ -16,10 +19,24 @@ const schema = yup.object({
         .required('Please enter your password'),
 }).required();
 
-// Sends post request to the endpoint and store JWT to localstorage and updates state
+/**
+ * Login component that handles user login.
+ * @returns the login form and navigates user to homepage at success.
+ */
 export function Login() {
+    /**
+     * Navigation variable
+     */
     const navigate = useNavigate();
+
+    /**
+     * Context function that sets the user context of the application
+     */
     const { currentUser, setCurrentUser } = useContext(UserContext);
+
+    /**
+     * Function that validates the schema object
+     */
     const {
         register,
         handleSubmit,
@@ -28,12 +45,23 @@ export function Login() {
         resolver: yupResolver(schema),
     })
 
+    /**
+     * Function that converts the
+     * @param {schema object} input to a body object
+     * and posts the body object to the endpoint
+     */
     function onSubmit(input) {
+        /**
+         * Converts the schema object to body object
+         */
         const body = {
             email: input.email,
             password: input.password,
         }
 
+        /**
+         * Posts body object to endpoint for validation
+         */
         fetch(`${loginUrl}`, {
             method: 'post',
             headers: {
@@ -42,7 +70,9 @@ export function Login() {
             body: JSON.stringify(body),
         }).then(response => response.json())
         .then(data => {
-
+            /**
+             * Stores the response data into an object
+             */
             const userBody = {
                 name: data.name,
                 email: data.email,
@@ -51,12 +81,21 @@ export function Login() {
                 venueManager: data.venueManager,
             };
 
+            /**
+             * Sets the userBody object to the local storage
+             */
             localStorage.setItem('userBody', JSON.stringify(userBody));
-
+            /**
+             * Parses the JSON userBody object in local storage
+             */
             const localData = JSON.parse(localStorage.getItem('userBody'));
-            
+            /**
+             * Sets the user context to the userBody object
+             */
             setCurrentUser(localData);
-
+            /**
+             * Checks for accessToken and navigates user to homepage
+             */
             if(localData.accessToken === localData.accessToken) {
                 setTimeout(() => {
                     navigate('/');

@@ -4,19 +4,35 @@ import { useParams } from "react-router-dom";
 import { bookingsUrl } from "../api/endpoints";
 import 'react-calendar/dist/Calendar.css';
 
+/**
+ * Booking component that
+ * @returns a calendar booking form
+ */
 export function BookVenue() {
-
+    /**
+     * useState functions that sets the user's input values
+     */
     const [ dateFrom, setDateFrom ] = useState(new Date());
     const [ dateTo, setDateTo ] = useState(new Date());
     const [ guests, setGuest ] = useState('');
 
+    /**
+     * Authorization variables
+     */
     const localData = JSON.parse(localStorage.getItem('userBody'));
     const token = localData.accessToken;
     let { id } = useParams();
 
+    /**
+     * Function that handles the booking request at endpoint.
+     * Takes one @param {Event} e and prevents page refresh. 
+     */
     const submitBooking = (e) => {
         e.preventDefault();
 
+        /**
+         * Body object that stores calendar input values
+         */
         const body = {
             dateFrom: dateFrom.toString(),
             dateTo: dateTo.toString(),
@@ -26,6 +42,9 @@ export function BookVenue() {
 
         console.log(body);
 
+        /**
+         * Api function call that posts the body object to the booking endpoint
+         */
         fetch(`${bookingsUrl}`, {
             method: 'post',
             headers: {
