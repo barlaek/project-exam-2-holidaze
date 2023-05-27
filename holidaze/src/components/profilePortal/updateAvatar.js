@@ -3,18 +3,30 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup"
 
+/**
+ * Schema object that updates the user avatar
+ */
 const schema = yup.object({
     avatar: yup
         .string()
         .url()
 })
 
+/**
+ * Component that updates the user avatar and
+ * @returns an submission form with validation
+ */
 export function UpdateAvatar() {
-
+    /**
+     * Variables for authorization
+     */
     const localData = JSON.parse(localStorage.getItem('userBody'))
     const name = localData.name
     const token = localData.accessToken;
 
+    /**
+     * Function that handles the validation of the schema object
+     */
     const {
         register,
         handleSubmit,
@@ -23,11 +35,21 @@ export function UpdateAvatar() {
         resolver: yupResolver(schema),
     });
 
+    /**
+     * Function that handles validation at endpoint.
+     * Takes one @param {url} input 
+     */
     function onSubmit(input) {
+        /**
+         * Variable that converts schema object to a body object
+         */
         const body = {
             avatar: input.avatar
         }
 
+        /**
+         * API function call that PUTs the user avatar
+         */
         fetch(`${profilesUrl}/${name}/media`, {
             method: 'put',
             headers: {

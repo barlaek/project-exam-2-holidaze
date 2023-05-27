@@ -2,6 +2,10 @@ import { VenueList } from "../venues/venuelist";
 import { ApiHook } from "../api/api";
 import { venuesUrl } from "../api/endpoints";
 
+/**
+ * Home component that fetches all venues data and
+ * @returns JSX for each venue
+ */
 export function Home() {
     const { data, loading, error } = ApiHook(`${venuesUrl}`);
 

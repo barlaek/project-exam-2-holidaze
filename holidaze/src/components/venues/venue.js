@@ -3,6 +3,11 @@ import { ApiHook } from "../api/api";
 import { venuesUrl } from "../api/endpoints";
 import { VenuePopulation } from "./venuePop";
 
+/**
+ * Venue scaffold that takes the VenuePopulation component and renders the data properties
+ * of the individual venues by ID and
+ * @returns a fully populated page
+ */
 export function Venue() {
     let { id } = useParams();
 

@@ -1,17 +1,25 @@
-import { useNavigate, useParams } from "react-router-dom"
 import { ApiHook } from "../api/api";
 import { profilesUrl } from "../api/endpoints";
 import { ProfilePopulation } from "./profilePop";
 import { Bookings } from "./bookings";
 import { CuratedVenues } from "./curatedVenues";
 
+/**
+ * Scaffold that fetches the data that populates the profile components and
+ * @returns the user's profile page
+ */
 export function Dashboard() {
-
+    /**
+     * Variables for authorization
+     */
     const localData = JSON.parse(localStorage.getItem('userBody'))
     const name = localData.name
     const token = localData.accessToken;
     const venueManager = localData.venueManager;
 
+    /**
+     * Api hook that fetches the data of the user
+     */
     const { data, loading, error } = ApiHook(`${profilesUrl}/${name}`, {
         method: 'get',
         headers: {

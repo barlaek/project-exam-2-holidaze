@@ -1,5 +1,10 @@
 import { venuesUrl } from "../api/endpoints"
 
+/**
+ * Component that handles the API call function of deleting a created post by user.
+ * Component has one @param {id} props and 
+ * @returns a button that deletes venue at endpoint
+ */
 export function DeleteVenue(props) {
 
     const id = props.id

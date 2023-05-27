@@ -4,6 +4,9 @@ import * as yup from 'yup'
 import { venuesUrl } from '../api/endpoints';
 import { useNavigate } from 'react-router-dom';
 
+/**
+ * Schema object that handles form input for validation
+ */
 const schema = yup.object({
     name: yup
         .string()
@@ -35,9 +38,14 @@ const schema = yup.object({
     }).default(null),
 });
 
+/**
+ * Component that handles the creation of a venue at end point and
+ * @returns a form with validation
+ */
 export function CreateVenue() {
-    const navigate = useNavigate();
-
+    /**
+     * Function that handles the schema object
+     */
     const {
         register,
         handleSubmit,
@@ -46,12 +54,23 @@ export function CreateVenue() {
         resolver: yupResolver(schema),
     });
 
+    /**
+     * Variables for authorization and navigation
+     */
     const localData = JSON.parse(localStorage.getItem('userBody'))
     const name = localData.name
     const token = localData.accessToken;
+    const navigate = useNavigate();
 
+    /**
+     * Function that handles creating a venue at endpoint.
+     * Function takes one @param {form} input and converts it to a body object 
+     */
     function onSubmit(input) {
         console.log(input)
+        /**
+         * Body object that converts the input of the schema object
+         */
         const body = {
             name: input.name,
             description: input.description,
@@ -73,7 +92,9 @@ export function CreateVenue() {
             },
         }
         console.log(body);
-
+        /**
+         * API function call that creates the venue post
+         */
         fetch(`${venuesUrl}`, {
             method: 'post',
             headers: {

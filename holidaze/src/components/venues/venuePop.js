@@ -1,16 +1,22 @@
-import { useContext } from "react";
-import { UserContext } from "../../App";
 import { BookVenue } from "../booking/bookVenue";
 import { Link } from "react-router-dom";
 
+
+/**
+ * Component of singular venue by ID that takes one
+ * @param {endpoint data of venue} props and
+ * @returns JSX that populates the venue by ID's DOM
+ */
 export function VenuePopulation(props) {
-    const { currentUser, setCurrentUser } = useContext(UserContext);
-
+    /**
+     * Fetches the local data to apply conditional rendering of JSX Calendar component
+     */
     const localData = localStorage.getItem('userBody');
-    
-    const venueData = props.venueData;
 
-    console.log(currentUser)
+    /**
+     * Variable that stores the properties of the data object
+     */
+    const venueData = props.venueData;
 
     return (
         <div>

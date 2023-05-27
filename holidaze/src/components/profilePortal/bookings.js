@@ -2,12 +2,21 @@ import { ApiHook } from "../api/api"
 import { profilesUrl } from "../api/endpoints";
 import { Link } from "react-router-dom";
 
+/**
+ * Component that checks the user's booking information at endpoint and
+ * @returns JSX of user's booking history 
+ */
 export function Bookings() {
-
+    /**
+     * Variables for authorization
+     */
     const localData = JSON.parse(localStorage.getItem('userBody'))
     const name = localData.name
     const token = localData.accessToken;
     
+    /**
+     * Api hook that fetches the user's booking data at endpoint
+     */
     const { data, loading, error } = ApiHook(`${profilesUrl}/${name}/bookings`, {
         method: 'get',
         headers: {

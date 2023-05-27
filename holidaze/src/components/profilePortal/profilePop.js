@@ -1,5 +1,10 @@
 import { UpdateAvatar } from "./updateAvatar"
 
+/**
+ * Component that populates the users information at profile page.
+ * Takes one @param {endpoint} props and 
+ * @returns JSX
+ */
 export function ProfilePopulation(props) {
     const profileData = props.profileData
 

@@ -4,6 +4,9 @@ import * as yup from 'yup'
 import { venuesUrl } from '../api/endpoints';
 import { useNavigate, useParams } from 'react-router-dom';
 
+/**
+ * Schema object for form validation
+ */
 const schema = yup.object({
     name: yup
         .string()
@@ -38,7 +41,15 @@ const schema = yup.object({
     }).default(null),
 });
 
+/**
+ * Updated venue component that
+ * @returns a form that updates a listed venue by a registered venue manager
+ */
 export function UpdateVenue() {
+
+    /**
+     * Validation function that handles the schema object
+     */
     const {
         register,
         handleSubmit,
@@ -47,15 +58,25 @@ export function UpdateVenue() {
         resolver: yupResolver(schema),
     });
 
+    /**
+     * Variables for authenticating the schema object and navigating the DOM
+     */
     const localData = JSON.parse(localStorage.getItem('userBody'))
     const name = localData.name;
     const token = localData.accessToken;
     const navigate = useNavigate();
-
     let { id } = useParams();
 
+    /**
+     * Function that handles the submission and PUTs the schema object to the endpoint.
+     * Takes a @param {form} input and converts it to object compatible with endpoint
+     */
     function onSubmit(input) {
         console.log(input)
+        /**
+         * Body object that converts the schema object input to a readable object
+         * at endpoint.
+         */
         const body = {
             name: input.name,
             description: input.description,
@@ -78,6 +99,9 @@ export function UpdateVenue() {
         }
         console.log(body);
 
+        /**
+         * API function call that PUTs and updates object
+         */
         fetch(`${venuesUrl}/${id}`, {
             method: 'put',
             headers: {

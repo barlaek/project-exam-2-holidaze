@@ -3,8 +3,11 @@ import { LogBtn } from "./logBtn";
 import { SearchBar } from "./searchbar";
 import { ProfileBtn } from "../profilePortal/profileNavBTN";
 import { CvpBtn } from "../venues/cvpBtn";
-import { Link } from "react-router-dom";
 
+/**
+ * Scaffolding component for navigation
+ * @returns JSX of navigation components
+ */
 export function Navigation() {
 
     return (

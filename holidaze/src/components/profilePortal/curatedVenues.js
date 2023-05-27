@@ -3,6 +3,10 @@ import { profilesUrl } from "../api/endpoints";
 import { Link } from "react-router-dom";
 import { DeleteVenue } from "../venues/deleteVenue";
 
+/**
+ * Component that populates the user's profile page if user is a venuemanager and
+ * @returns JSX
+ */
 export function CuratedVenues() {
     const localData = JSON.parse(localStorage.getItem('userBody'))
     const name = localData.name
