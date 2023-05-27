@@ -24,9 +24,9 @@ export function Bookings() {
             {data.map((booking) => {
                 return <div>
                     <Link to={`/venues/${booking.id}`}><h3>See booking</h3></Link>
-                    <p>Booking from {booking.dateFrom} to {booking.dateTo}</p>
+                    <p>Booking from {new Date(booking.dateFrom).toDateString()} to {new Date(booking.dateTo).toDateString()}</p>
                     <p>Number of guests: {booking.guests}</p>
-                    <p>Booking was last uppdated: {booking.updated}</p>
+                    <p>Booking was last uppdated: {new Date(booking.updated).toLocaleString()}</p>
                 </div>
             })}
         </div>
