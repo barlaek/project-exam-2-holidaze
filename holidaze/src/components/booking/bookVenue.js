@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Calendar from 'react-calendar'
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { bookingsUrl } from "../api/endpoints";
 import 'react-calendar/dist/Calendar.css';
 
@@ -15,6 +15,7 @@ export function BookVenue() {
     const [ dateFrom, setDateFrom ] = useState(new Date());
     const [ dateTo, setDateTo ] = useState(new Date());
     const [ guests, setGuest ] = useState('');
+    const navigate = useNavigate();
 
     /**
      * Authorization variables
@@ -55,7 +56,7 @@ export function BookVenue() {
         }).then(response => {
             console.log(response)
             if(response.ok) {
-                window.location.reload();
+                navigate(`/profiles/${localData.name}`)
             }
         }).then(error => {
             console.log(error);
