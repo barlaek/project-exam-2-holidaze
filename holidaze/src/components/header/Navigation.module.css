@@ -5,6 +5,12 @@
 
 .profileContainer {
     display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 3;
+    top: 70%;
+    background-color: black;
+    padding: 20px;
 }
 
  .menuIcon {
@@ -70,5 +76,9 @@
 @media (min-width: 1200px) {
     .menuIcon {
         display: none;
+    }
+
+    .profileContainer {
+        flex-direction: row;
     }
 }

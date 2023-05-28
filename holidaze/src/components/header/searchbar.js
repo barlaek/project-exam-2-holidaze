@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ApiHook } from "../api/api";
 import { venuesUrl } from "../api/endpoints";
+import { Link } from "react-router-dom";
 import styles from "./Searchbar.module.css";
 
 /**
@@ -41,12 +42,23 @@ export function SearchBar() {
 
 
     return (
-        <div className={styles.container}>
-            <input 
-                type="text" 
-                placeholder="search" 
-                onChange={handleChange}
-                className={styles.input}/>
+        <div>
+            <div className={styles.container}>
+                <input 
+                    type="text" 
+                    placeholder="search" 
+                    onChange={handleChange}
+                    className={styles.input}/>
+            </div>
+            {searchInput.length !== 0 && (
+            <div className={styles.searchInput}>
+                {searchInput.map((product) => {
+                    return <div className={styles.data}>
+                                <Link to={`/venues/${product.id}`} className={styles.data}>{product.name}</Link>
+                            </div>
+                })}
+            </div>
+            )}
         </div>
     )
 }
