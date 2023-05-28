@@ -1,13 +1,14 @@
 .container {
     display: flex;
     flex-direction: column;
-    max-width: 398px;
-    min-width: 398px;
+    max-width: 350px;
+    min-width: 350px;
     min-height: 500px;
     border: 1px solid;
     border-radius: 10px;
     align-items: center;
     padding-bottom: 2rem;
+    margin-bottom: 2rem;
 }
 
 .image {
@@ -17,4 +18,11 @@
     max-height: 300px;
     border-radius: 50%;
     margin: 1rem 0;
+}
+
+@media (min-width: 1640px) {
+    .container {
+        max-width: 398px;
+        min-width: 398px;
+    }
 }

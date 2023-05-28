@@ -1,7 +1,7 @@
 .login {
     display: flex;
     flex-direction: column;
-    min-width: 500px;
+    min-width: 350px;
     height: 80vh;
     margin: 0 auto;
     justify-content: center;
@@ -10,7 +10,6 @@
 
 .title {
     color: #50E3C2;
-    padding: 2rem;
 }
 
 .fieldset {
@@ -18,8 +17,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-width: 500px;
-    min-height: 500px;
+    min-width: 350px;
+    min-height: 350px;
     border-radius: 10px;
 }
 
@@ -59,4 +58,19 @@
 .button:hover {
     background-color: black;
     color: #50E3C2;
+  }
+
+  @media (min-width: 600px) {
+    .login {
+        min-width: 500px;
+    }
+
+    .title {
+        padding: 2rem;
+    }
+
+    .fieldset {
+        min-width: 500px;
+        min-height: 500px;
+    }
   }
