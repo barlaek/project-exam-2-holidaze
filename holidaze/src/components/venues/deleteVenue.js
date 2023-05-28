@@ -21,7 +21,6 @@ export function DeleteVenue(props) {
                 Authorization: `Bearer ${token}`,
             }
         }).then(response => {
-            console.log(response);
             if(response.ok) {
                 window.location.reload();
             }

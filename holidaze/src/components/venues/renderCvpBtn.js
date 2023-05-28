@@ -10,7 +10,6 @@ export const RenderCvpBtn = () =>  {
      */
     const localData = JSON.parse(localStorage.getItem("userBody"));
     const venueManager = localData.venueManager;
-    console.log(venueManager);
 
     return (
         <div>

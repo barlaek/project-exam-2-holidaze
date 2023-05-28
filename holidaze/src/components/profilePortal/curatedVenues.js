@@ -21,8 +21,6 @@ export function CuratedVenues() {
         }
     })
 
-    console.log(data)
-
     return (
         <div className={styles.container}>
             <h2 className={styles.title}>Your venues</h2>

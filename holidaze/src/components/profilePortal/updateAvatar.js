@@ -59,7 +59,6 @@ export function UpdateAvatar() {
             },
             body: JSON.stringify(body),
         }).then(response => {
-            console.log(response)
             if(response.ok) {
                 window.location.reload();
             }

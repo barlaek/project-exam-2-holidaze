@@ -74,7 +74,6 @@ export function UpdateVenue() {
      * Takes a @param {form} input and converts it to object compatible with endpoint
      */
     function onSubmit(input) {
-        console.log(input)
         /**
          * Body object that converts the schema object input to a readable object
          * at endpoint.
@@ -99,7 +98,6 @@ export function UpdateVenue() {
                 continent: input.location.continent,
             },
         }
-        console.log(body);
 
         /**
          * API function call that PUTs and updates object
@@ -112,12 +110,9 @@ export function UpdateVenue() {
             },
             body: JSON.stringify(body)
         }).then(response => {
-            console.log(response)
             if(response.ok) {
                 navigate(`/profiles/${name}`)
             }
-        }).then(data => {
-            console.log(data)
         }).catch(error => {
             console.log(error)
         })

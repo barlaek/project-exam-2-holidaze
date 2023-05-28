@@ -42,8 +42,6 @@ export function BookVenue() {
             venueId: id,
         }
 
-        console.log(body);
-
         /**
          * Api function call that posts the body object to the booking endpoint
          */
@@ -55,7 +53,6 @@ export function BookVenue() {
             },
             body: JSON.stringify(body),
         }).then(response => {
-            console.log(response)
             if(response.ok) {
                 navigate(`/profiles/${localData.name}`)
             }

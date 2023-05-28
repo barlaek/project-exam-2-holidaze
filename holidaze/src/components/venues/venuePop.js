@@ -21,7 +21,7 @@ export function VenuePopulation(props) {
 
     return (
         <div className={styles.container}>
-            <div className={styles.imageCont}>
+            <div>
                 <img src={venueData.media} alt="picture(s) of the venue" className={styles.image}/>
             </div>
             <div className={styles.content}>

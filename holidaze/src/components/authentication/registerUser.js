@@ -79,7 +79,6 @@ export function Registration() {
             },
             body: JSON.stringify(body),
         }).then(response => {
-            console.log(response)
             if(response.ok) {
                 return navigation("/login")
             }

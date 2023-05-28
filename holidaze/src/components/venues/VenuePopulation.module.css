@@ -9,10 +9,6 @@
     align-items: center;
 }
 
-.imageCont {
-
-}
-
 .image {
     object-fit: cover;
     width: 100%;
