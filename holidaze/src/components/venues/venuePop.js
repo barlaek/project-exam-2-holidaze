@@ -29,7 +29,7 @@ export function VenuePopulation(props) {
                     <div className={styles.desc}>
                         <h2>{venueData.name}</h2>
                         <p className={styles.p}>Price per night: {venueData.price}kr</p>
-                        <p className={styles.p}>Max number of guests {venueData.maxGuests}kr</p>
+                        <p className={styles.p}>Max number of guests {venueData.maxGuests}</p>
                         <p className={styles.p}>{venueData.description}</p>
                     </div>
                     <div className={styles.info}>
