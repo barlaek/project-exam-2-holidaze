@@ -3,6 +3,7 @@ import { profilesUrl } from "../api/endpoints";
 import { ProfilePopulation } from "./profilePop";
 import { Bookings } from "./bookings";
 import { CuratedVenues } from "./curatedVenues";
+import styles from "./Dashboard.module.css"
 
 /**
  * Scaffold that fetches the data that populates the profile components and
@@ -31,7 +32,7 @@ export function Dashboard() {
     console.log(data);
 
     return (
-        <div>
+        <div className={styles.container}>
             <div>
                 <ProfilePopulation profileData={data} />
             </div>

@@ -2,6 +2,7 @@ import { profilesUrl } from "../api/endpoints";
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup"
+import styles from "./UpdateAvatar.module.css"
 
 /**
  * Schema object that updates the user avatar
@@ -68,10 +69,10 @@ export function UpdateAvatar() {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input {...register('avatar')} placeholder="Please provie image url"/>
-                <input type="submit" value="Update avatar"/>
+        <div className={styles.container}>
+            <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+                <input {...register('avatar')} placeholder="Please provie image url" className={styles.input}/>
+                <input type="submit" value="Update avatar" className={styles.button} />
             </form>
         </div>
     )

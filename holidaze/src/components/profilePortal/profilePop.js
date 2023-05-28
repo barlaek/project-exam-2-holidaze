@@ -1,4 +1,5 @@
 import { UpdateAvatar } from "./updateAvatar"
+import styles from "./ProfilePopulation.module.css"
 
 /**
  * Component that populates the users information at profile page.
@@ -9,9 +10,9 @@ export function ProfilePopulation(props) {
     const profileData = props.profileData
 
     return (
-        <div>
+        <div className={styles.container}>
             <div>
-                <img src={profileData.avatar} alt="profile picture" />
+                <img src={profileData.avatar} alt="profile picture" className={styles.image} />
                 <UpdateAvatar />
             </div>
             <div>
