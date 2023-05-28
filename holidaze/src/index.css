@@ -61,6 +61,12 @@ footer {
 
 select {
   padding: 10px;
-  min-width: 300px;
+  min-width: 200px;
   border-radius: 5px;
+}
+
+@media (min-width: 600px) {
+  select {
+    min-width: 300px;
+  }
 }
