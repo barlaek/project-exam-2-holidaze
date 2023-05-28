@@ -1,8 +1,9 @@
 import { useState } from "react";
-import Calendar from 'react-calendar'
+import Calendar from 'react-calendar';
 import { useNavigate, useParams } from "react-router-dom";
 import { bookingsUrl } from "../api/endpoints";
 import 'react-calendar/dist/Calendar.css';
+import styles from "./BookVenue.module.css";
 
 /**
  * Booking component that
@@ -65,7 +66,8 @@ export function BookVenue() {
 
     return (
         <div>
-            <form>
+            <form className={styles.form}>
+                <h2>Book this venue</h2>
                 <h3>Select arrival date:</h3>
                 <Calendar 
                     onChange={setDateFrom} 
@@ -81,7 +83,8 @@ export function BookVenue() {
                     type="text" 
                     value={guests} 
                     onChange={(e) => setGuest(e.target.value)} 
-                    placeholder="Number of guests"/> 
+                    placeholder="Number of guests"
+                    className={styles.input}/> 
                 <button onClick={submitBooking}>Book venue</button>
             </form>
         </div>

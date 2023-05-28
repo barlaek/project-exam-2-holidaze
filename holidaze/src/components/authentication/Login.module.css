@@ -13,7 +13,7 @@
     padding: 2rem;
 }
 
-fieldset {
+.fieldset {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,14 +23,14 @@ fieldset {
     border-radius: 10px;
 }
 
-form {
+.form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-top: auto;
 }
 
-label {
+.label {
     margin-bottom: 10px;
 }
 

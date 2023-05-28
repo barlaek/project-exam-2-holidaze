@@ -1,5 +1,6 @@
 import { BookVenue } from "../booking/bookVenue";
 import { Link } from "react-router-dom";
+import styles from "./VenuePopulation.module.css";
 
 
 /**
@@ -19,58 +20,64 @@ export function VenuePopulation(props) {
     const venueData = props.venueData;
 
     return (
-        <div>
+        <div className={styles.container}>
             <div>
-                <img src={venueData.media} alt="picture(s) of the venue" />
+                <img src={venueData.media} alt="picture(s) of the venue" className={styles.image}/>
             </div>
-            <div>
-                {localData ? (
-                    <BookVenue />
-                ) : (
-                    <div>
-                        <p>You must be logged in to book a venue</p>
-                        <Link to={'/login'}><button>Log in</button></Link>
+            <div className={styles.content}>
+                <div className={styles.details}>
+                    <div className={styles.desc}>
+                        <h2>{venueData.name}</h2>
+                        <p className={styles.p}>Price per night: {venueData.price}kr</p>
+                        <p className={styles.p}>{venueData.description}</p>
                     </div>
-                )}
-            </div>
-            <div>
-                <div>
-                    <h2>{venueData.name}</h2>
-                    <p>Price per night: {venueData.price}kr</p>
-                    <p>{venueData.description}</p>
+                    <div className={styles.info}>
+                        <h3>Information about the venue:</h3>
+                        <div className={styles.locdet}>
+                            <h4>Location:</h4>
+                            <div className={styles.location}>
+                                <p className={styles.p}>Address: {venueData.location.address}</p>
+                                <p className={styles.p}>City: {venueData.location.city}</p>
+                                <p className={styles.p}>Country: {venueData.location.country}</p>
+                            </div>
+                        </div>
+                        <div className={styles.locdet}>
+                            <h4>Additional information</h4>
+                            <div className={styles.location}>
+                                {venueData.meta.breakfast ? (
+                                    <p className={styles.p}>Serves breakfast</p>
+                                    ) : (
+                                    <p className={styles.p}>No breakfast</p>
+                                    )}
+                                {venueData.meta.parking ? (
+                                    <p className={styles.p}>Has parking</p>
+                                ) : (
+                                    <p className={styles.p}>No parking</p>
+                                )}
+                                {venueData.meta.pets ? (
+                                    <p className={styles.p}>Pet friendly</p>
+                                ) : (
+                                    <p className={styles.p}>No pets allowed</p>
+                                )}
+                                {venueData.meta.wifi ? (
+                                    <p className={styles.p}>Has wifi</p>
+                                ) : (
+                                    <p className={styles.p}>No wifi</p>
+                                )}
+                            </div>
+                        </div>
+                        <p className={styles.p}>This post was last updated: {new Date(venueData.updated).toLocaleString()}</p>
+                    </div>
                 </div>
-                <div>
-                    <h3>Information about the venue:</h3>
-                    <div>
-                        <h4>Location:</h4>
-                        <p>Address: {venueData.location.address}</p>
-                        <p>City: {venueData.location.city}</p>
-                        <p>Country: {venueData.location.country}</p>
-                    </div>
-                    <div>
-                        <h4>Additional information</h4>
-                            {venueData.meta.breakfast ? (
-                            <p>Serves breakfast</p>
-                            ) : (
-                                <p>No breakfast</p>
-                            )}
-                            {venueData.meta.parking ? (
-                                <p>Has parking</p>
-                            ) : (
-                                <p>No parking</p>
-                            )}
-                            {venueData.meta.pets ? (
-                                <p>Pet friendly</p>
-                            ) : (
-                                <p>No pets allowed</p>
-                            )}
-                            {venueData.meta.wifi ? (
-                                <p>Has wifi</p>
-                            ) : (
-                                <p>No wifi</p>
-                            )}
-                    </div>
-                    <p>This post was last updated: {new Date(venueData.updated).toLocaleString()}</p>
+                <div className={styles.calendar}>
+                    {localData ? (
+                        <BookVenue />
+                        ) : (
+                        <div>
+                            <p>You must be logged in to book a venue</p>
+                            <Link to={'/login'}><button>Log in</button></Link>
+                        </div>
+                     )}
                 </div>
             </div>
         </div>

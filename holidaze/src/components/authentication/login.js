@@ -110,13 +110,13 @@ export function Login() {
 
     return (
         <div className={styles.login}>
-            <fieldset>
+            <fieldset className={styles.fieldset}>
                 <h1 className={styles.title}>Log in</h1>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <label for="email">Email</label>
+                <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+                    <label for="email" className={styles.label}>Email</label>
                     <input {...register('email')} placeholder='Email' className={styles.input}/>
                     <p>{errors.email?.message}</p>
-                    <label for="password">Password</label>
+                    <label for="password" className={styles.label}>Password</label>
                     <input type='password' {...register('password')} placeholder='Password' className={styles.input}/>
                     <p>{errors.password?.message}</p>
                     <div className={styles.container}>
