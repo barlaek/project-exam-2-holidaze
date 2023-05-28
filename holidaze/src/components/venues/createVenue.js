@@ -3,6 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { venuesUrl } from '../api/endpoints';
 import { useNavigate } from 'react-router-dom';
+import styles from "./CreateVenue.module.css"
 
 /**
  * Schema object that handles form input for validation
@@ -113,39 +114,39 @@ export function CreateVenue() {
     }
 
     return (
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                 <h1>Create a new venue</h1>
-                <fieldset>
+                <fieldset className={styles.fieldset}>
                     <h2>Essential information</h2>
-                    <div>
+                    <div className={styles.object}>
                         <p>Enter name of the location</p>
-                        <input {...register('name')} placeholder='Name of the location'/>
+                        <input {...register('name')} placeholder='Name of the location' className={styles.input}/>
                         <p>{errors.name?.message}</p>
                     </div>
-                    <div>
+                    <div className={styles.object}>
                         <p>Please describe the location</p>
-                        <input {...register('description')} placeholder='Describe the location'/>
+                        <input {...register('description')} placeholder='Describe the location'className={styles.input}/>
                         <p>{errors.description?.message}</p>
                     </div>
-                    <div>
+                    <div className={styles.object}>
                         <p>Images</p>
-                        <input {...register('media')} placeholder='Images of the location'/>
+                        <input {...register('media')} placeholder='Images of the location'className={styles.input}/>
                         <p>{errors.media?.message}</p>
                     </div>
-                    <div>
+                    <div className={styles.object}>
                         <p>Please register a price</p>
-                        <input {...register('price')} placeholder='Price of the location per night'/>
+                        <input {...register('price')} placeholder='Price of the location per night'className={styles.input}/>
                         <p>{errors.price?.message}</p>
                     </div>
-                    <div>
-                        <p>Please enter the maximum number of guests</p>
-                        <input {...register('maxGuests')} placeholder='Maximum number of guests'/>
+                    <div className={styles.object}>
+                        <p>Maximum number of guests</p>
+                        <input {...register('maxGuests')} placeholder='Maximum number of guests'className={styles.input}/>
                         <p>{errors.maxGuests?.message}</p>
                     </div>
                 </fieldset>
-                <fieldset>
+                <fieldset className={styles.fieldset}>
                     <h2>Additional information</h2>
-                    <div>
+                    <div className={styles.object}>
                         <p>Wifi options</p>
                         <select {...register('meta.wifi')}>
                             <option>Select wifi</option>
@@ -153,7 +154,7 @@ export function CreateVenue() {
                             <option value={false}>No wifi</option>
                         </select>
                     </div>
-                    <div>
+                    <div className={styles.object}>
                         <p>Parking options</p>
                         <select {...register('meta.parking')}>
                             <option>Select parking</option>
@@ -161,7 +162,7 @@ export function CreateVenue() {
                             <option value={false}>No parking</option>
                         </select>
                     </div>
-                    <div>
+                    <div className={styles.object}>
                         <p>Breakfast options</p>
                         <select {...register('meta.breakfast')}>
                             <option>Select breakfast</option>
@@ -169,7 +170,7 @@ export function CreateVenue() {
                             <option value={false}>No breakfast</option>
                         </select>
                     </div>
-                    <div>
+                    <div className={styles.object}>
                         <p>Pet options</p>
                         <select {...register('meta.pets')}>
                             <option>Select pets</option>
@@ -178,30 +179,30 @@ export function CreateVenue() {
                         </select>
                     </div>
                 </fieldset>
-                <fieldset>
+                <fieldset className={styles.fieldset}>
                     <h2>Location information</h2>
-                    <div>
+                    <div className={styles.object}>
                         <p>Address</p>
-                        <input {...register('location.address')} placeholder='Address of the venue'/>
+                        <input {...register('location.address')} placeholder='Address of the venue' className={styles.input}/>
                     </div>
-                    <div>
+                    <div className={styles.object}>
                         <p>City</p>
-                        <input {...register('location.city')} placeholder='City of the venue'/>
+                        <input {...register('location.city')} placeholder='City of the venue' className={styles.input}/>
                     </div>
-                    <div>
+                    <div className={styles.object}>
                         <p>Zip code</p>
-                        <input {...register('location.zip')} placeholder='Zip code of the venue'/>
+                        <input {...register('location.zip')} placeholder='Zip code of the venue' className={styles.input}/>
                     </div>
-                    <div>
+                    <div className={styles.object}>
                         <p>Country</p>
-                        <input {...register('location.country')} placeholder='Country of the venue'/>
+                        <input {...register('location.country')} placeholder='Country of the venue' className={styles.input}/>
                     </div>
-                    <div>
+                    <div className={styles.object}>
                         <p>Continent</p>
-                        <input {...register('location.continent')} placeholder='Continent of the venue'/>
+                        <input {...register('location.continent')} placeholder='Continent of the venue' className={styles.input}/>
                     </div>
                 </fieldset>
-                <input type='submit' value='Create new venue' />
+                <input type='submit' value='Create new venue' className={styles.button}/>
             </form>
     )
 }

@@ -24,6 +24,10 @@ h3 {
   font-family: 'M PLUS Rounded 1c', sans-serif;;
 }
 
+h1 {
+  color: #50E3C2;
+}
+
 a {
   text-decoration: none;
   color: black
@@ -48,4 +52,10 @@ footer {
   align-items: center;
   margin: 0 auto;
   color: white;
+}
+
+select {
+  padding: 10px;
+  min-width: 300px;
+  border-radius: 5px;
 }

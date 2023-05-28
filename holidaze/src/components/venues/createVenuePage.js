@@ -1,4 +1,5 @@
 import { CreateVenue } from "./createVenue";
+import styles from "./CreateVenuePage.module.css"
 
 /**
  * Scaffodling component that
@@ -6,7 +7,7 @@ import { CreateVenue } from "./createVenue";
  */
 export function CreateVenuePage() {
     return (
-        <div>
+        <div className={styles.container}>
             <CreateVenue />
         </div>
     )
