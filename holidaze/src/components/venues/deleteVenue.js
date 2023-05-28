@@ -1,4 +1,5 @@
 import { venuesUrl } from "../api/endpoints"
+import styles from "./DeleteVenue.module.css"
 
 /**
  * Component that handles the API call function of deleting a created post by user.
@@ -30,6 +31,6 @@ export function DeleteVenue(props) {
     }
 
     return (
-        <button onClick={deleteVenue}>Delete venue</button>
+        <button onClick={deleteVenue} className={styles.delete}>Delete venue</button>
     )
 }
