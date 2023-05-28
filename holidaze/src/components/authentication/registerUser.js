@@ -3,6 +3,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { registerUrl } from '../api/endpoints';
 import { useNavigate } from 'react-router-dom';
+import styles from "./Login.module.css";
+import style from "./RegisterUser.module.css"
 
 /**
  * Schema object that handles registration validation
@@ -88,12 +90,12 @@ export function Registration() {
     }
 
     return (
-        <div>
-            <h1>Register an account</h1>
+        <div className={styles.login}>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <fieldset>
+                <fieldset className={styles.fieldset}>
+                    <h1>Register an account</h1>
                     <div>
-                        <p>Please select role</p>
+                        <p className={styles.label}>Please select role</p>
                         <select {...register('venueManager')}>
                             <option>Select role</option>
                             <option value={false}>Guest</option>
@@ -101,25 +103,27 @@ export function Registration() {
                         </select>
                     </div>
                     <div>
-                        <p>Please register a name</p>
-                        <input {...register('name')} placeholder="Name"/>
+                        <p className={styles.label}>Please register a name</p>
+                        <input {...register('name')} placeholder="Name" className={styles.input}/>
                         <p>{errors.name?.message}</p>
                     </div>
                     <div>
-                        <p>Please register an email</p>
-                        <input {...register('email')} placeholder="email"/>
+                        <p className={styles.label}>Please register an email</p>
+                        <input {...register('email')} placeholder="email" className={styles.input}/>
                         <p>{errors.email?.message}</p>
                     </div>
                     <div>
-                        <p>Please register a password</p>
-                        <input {...register('password')} placeholder="password" type="password"/>
+                        <p className={styles.label}>Please register a password</p>
+                        <input {...register('password')} placeholder="password" type="password" className={styles.input}/>
                         <p>{errors.password?.message}</p>
                     </div>
                     <div>
-                        <p>Please submit an avatar image</p>
-                        <input {...register('avatar')} placeholder="avatar"/>
+                        <p className={styles.label}>Please submit an avatar image</p>
+                        <input {...register('avatar')} placeholder="avatar" className={styles.input}/>
                     </div>
-                    <input type="submit" value='Register'/>
+                    <div className={style.buttonCont}>
+                        <input type="submit" value='Register' className={styles.button}/>
+                    </div>
                 </fieldset>
             </form>
         </div>

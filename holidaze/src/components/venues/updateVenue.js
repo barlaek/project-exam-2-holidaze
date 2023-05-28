@@ -3,6 +3,8 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { venuesUrl } from '../api/endpoints';
 import { useNavigate, useParams } from 'react-router-dom';
+import styles from "./CreateVenue.module.css"
+import container from "./CreateVenuePage.module.css"
 
 /**
  * Schema object for form validation
@@ -122,37 +124,38 @@ export function UpdateVenue() {
     }
 
     return (
-            <form onSubmit={handleSubmit(onSubmit)}>
+        <div className={container.container}>
+            <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                 <h1>Update venue</h1>
-                <fieldset>
+                <fieldset className={styles.fieldset}>
                     <h2>Update essential information</h2>
-                    <div>
+                    <div className={styles.object}>
                         <p>Update venue name</p>
-                        <input {...register('name')} placeholder='Name of the location'/>
+                        <input {...register('name')} placeholder='Name of the location' className={styles.input}/>
                         <p>{errors.name?.message}</p>
                     </div>
-                    <div>
+                    <div className={styles.object}>
                         <p>Update venue description</p>
-                        <input {...register('description')} placeholder='Describe the location'/>
+                        <input {...register('description')} placeholder='Describe the location' className={styles.input}/>
                         <p>{errors.description?.message}</p>
                     </div>
-                    <div>
+                    <div className={styles.object}>
                         <p>Update venue images</p>
-                        <input {...register('media')} placeholder='Images of the location'/>
+                        <input {...register('media')} placeholder='Images of the location' className={styles.input}/>
                         <p>{errors.media?.message}</p>
                     </div>
-                    <div>
+                    <div className={styles.object}>
                         <p>Update price</p>
-                        <input {...register('price')} placeholder='Price of the location per night'/>
+                        <input {...register('price')} placeholder='Price of the location per night' className={styles.input}/>
                         <p>{errors.price?.message}</p>
                     </div>
-                    <div>
+                    <div className={styles.object}>
                         <p>Update maximum number of guests</p>
-                        <input {...register('maxGuests')} placeholder='Maximum number of guests'/>
+                        <input {...register('maxGuests')} placeholder='Maximum number of guests' className={styles.input}/>
                         <p>{errors.maxGuests?.message}</p>
                     </div>
                 </fieldset>
-                <fieldset>
+                <fieldset className={styles.fieldset}>
                     <h2>Update additional information</h2>
                     <div>
                         <p>Update wifi options</p>
@@ -187,30 +190,31 @@ export function UpdateVenue() {
                         </select>
                     </div>
                 </fieldset>
-                <fieldset>
+                <fieldset className={styles.fieldset}>
                     <h2>Location information</h2>
-                    <div>
+                    <div className={styles.object}>
                         <p>Address</p>
-                        <input {...register('location.address')} placeholder='Address of the venue'/>
+                        <input {...register('location.address')} placeholder='Address of the venue' className={styles.input}/>
                     </div>
-                    <div>
+                    <div className={styles.object}>
                         <p>City</p>
-                        <input {...register('location.city')} placeholder='City of the venue'/>
+                        <input {...register('location.city')} placeholder='City of the venue' className={styles.input}/>
                     </div>
-                    <div>
+                    <div className={styles.object}>
                         <p>Zip code</p>
-                        <input {...register('location.zip')} placeholder='Zip code of the venue'/>
+                        <input {...register('location.zip')} placeholder='Zip code of the venue' className={styles.input}/>
                     </div>
-                    <div>
+                    <div className={styles.object}>
                         <p>Country</p>
-                        <input {...register('location.country')} placeholder='Country of the venue'/>
+                        <input {...register('location.country')} placeholder='Country of the venue' className={styles.input}/>
                     </div>
-                    <div>
+                    <div className={styles.object}>
                         <p>Continent</p>
-                        <input {...register('location.continent')} placeholder='Continent of the venue'/>
+                        <input {...register('location.continent')} placeholder='Continent of the venue' className={styles.input}/>
                     </div>
                 </fieldset>
-                <input type='submit' value='Updata venue' />
+                <input type='submit' value='Update venue' className={styles.button}/>
             </form>
+        </div>
     )
 }
