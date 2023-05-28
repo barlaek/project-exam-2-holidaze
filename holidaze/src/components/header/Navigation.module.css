@@ -6,3 +6,69 @@
 .profileContainer {
     display: flex;
 }
+
+ .menuIcon {
+    padding: 28px 20px;
+    position: relative;
+    float: right;
+    cursor: pointer;
+}
+
+ .menuIcon .navIcon {
+    background: #333;
+    display: block;
+    height: 2px;
+    width: 18px;
+    position: relative;
+    transition: background .2s ease-out;
+}
+
+ .menuIcon .navIcon:before {
+    background: #333;
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    top: 5px;
+}
+
+ .menuIcon .navIcon:after {
+    background: #333;
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    top: -5px;
+}
+
+.menuBtn {
+    display: none;
+}
+
+.menuBtn:checked ~ .menu {
+    max-height: 240px;
+}
+
+.menuBtn:checked ~ .menuIcon .navIcon {
+    background: transparent;
+}
+
+.menuBtn:checked ~ .menuIcon .navIcon:before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.menuBtn:checked ~ .menuBcon .navBcon:after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+@media (min-width: 1200px) {
+    .menuIcon {
+        display: none;
+    }
+}

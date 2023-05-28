@@ -16,6 +16,8 @@ export function Navigation() {
             <div>
                 <SearchBar />
             </div>
+            <input className={styles.menuBtn} type="checkbox" />
+            <label className={styles.menuIcon} for="menu-btn"><span className={styles.navIcon}></span></label>
             <div className={styles.profileContainer}>
                 <LogBtn />
                 <ProfileBtn />
