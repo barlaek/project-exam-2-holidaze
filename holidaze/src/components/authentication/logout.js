@@ -14,8 +14,14 @@ export function Logout() {
     function logOut() {
         if(localStorage) {
             navigate('/');
-            localStorage.removeItem('userBody');
-            setCurrentUser(null)
+            setTimeout(() => {
+                localStorage.removeItem('userBody');
+                setCurrentUser(null)
+                setTimeout(() => {
+                    window.location.reload()
+                }, 1000)
+            }, 1000)
+
         }
 
     }
