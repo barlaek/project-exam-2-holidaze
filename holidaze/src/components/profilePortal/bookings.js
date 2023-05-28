@@ -1,6 +1,7 @@
 import { ApiHook } from "../api/api"
 import { profilesUrl } from "../api/endpoints";
 import { Link } from "react-router-dom";
+import styles from "./Bookings.module.css";
 
 /**
  * Component that checks the user's booking information at endpoint and
@@ -28,10 +29,10 @@ export function Bookings() {
     console.log(data)
 
     return (
-        <div>
-            <h2>Your bookings</h2>
+        <div className={styles.container}>
+            <h2 className={styles.title}>Your bookings</h2>
             {data.map((booking) => {
-                return <div>
+                return <div className={styles.booking}>
                     <Link to={`/venues/${booking.id}`}><h3>See booking</h3></Link>
                     <p>Booking from {new Date(booking.dateFrom).toDateString()} to {new Date(booking.dateTo).toDateString()}</p>
                     <p>Number of guests: {booking.guests}</p>

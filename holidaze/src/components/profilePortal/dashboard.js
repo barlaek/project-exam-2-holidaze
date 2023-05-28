@@ -36,15 +36,17 @@ export function Dashboard() {
             <div>
                 <ProfilePopulation profileData={data} />
             </div>
-            <div>
-                <Bookings />
-            </div>
-            <div>
-                {venueManager ? (
-                    <CuratedVenues />
-                ) : (
-                    <div></div>
-                )}
+            <div className={styles.population}>
+                <div>
+                    <Bookings />
+                </div>
+                <div>
+                    {venueManager ? (
+                        <CuratedVenues />
+                    ) : (
+                        <div></div>
+                    )}
+                </div>
             </div>
         </div>
     )

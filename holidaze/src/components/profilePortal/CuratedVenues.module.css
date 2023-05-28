@@ -1,14 +1,30 @@
+.container {
+    border: 1px solid;
+    border-radius: 10px;
+    margin: 2em 0 5em 0;
+    padding: 2rem;
+}
+
+.title {
+    border-bottom: 1px solid;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
 .card {
     display: flex;
     flex-direction: column;
+    max-width: 398px;
     min-height: 500px;
-    min-width: 398px;
     border-radius: 10px;
     margin: 0 auto;
     box-shadow: 1px 1px 1px 1px rgba(99, 99, 99, .5)
 }
 
-.img {
+.image {
     object-fit: cover;
     width: 100%;
     min-height: 398px;
@@ -18,13 +34,12 @@
     border-bottom: 1px solid rgba(99, 99, 99, .5);
 }
 
-.imageContainer {
-   margin: 0;
+.content {
+    padding: 0 2rem 1rem 3rem;
 }
 
-.text {
-    display: block;
-    margin-bottom: 2rem;
-    padding-left: 2rem;
-    max-width: 300px;
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }

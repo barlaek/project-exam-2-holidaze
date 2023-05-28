@@ -1,9 +1,17 @@
 .container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     min-width: 1640px;
     max-width: 1640px;
     margin: 0 auto;
     padding-top: 2em;
     padding-bottom: 5em;
+}
+
+.population {
+    display: flex;
+    flex-direction: column;
+    min-width: 1222px;
+    max-width: 1222px;
+    margin-left: 20px;
 }
