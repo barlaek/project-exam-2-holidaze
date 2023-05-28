@@ -1,29 +1,64 @@
 import React, { useState } from "react";
-import { ApiHook } from "../api";
+import { ApiHook } from "../api/api";
+import { venuesUrl } from "../api/endpoints";
+import { Link } from "react-router-dom";
+import styles from "./Searchbar.module.css";
 
+/**
+ * Component that handles a search string and
+ * @returns a JSX input object and renders array of results
+ */
 export function SearchBar() {
-    const { data, loading, error } = ApiHook("https://api.noroff.dev/api/v1/holidaze/venues");
+    /**
+     * Hook that fetches all venues at endpoint
+     */
+    const { data } = ApiHook(`${venuesUrl}`);
 
-    const [filteredResults, setFilteredResults] = useState([]);
-    const [searchInput, setSearchInput] = useState('');
+    /**
+     * Function that sets the input state of the searchbar
+     */
+    const [searchInput, setSearchInput] = useState([]);
 
-    const searchItems = (searchValue) => {
-        setSearchInput(searchValue);
-        if(searchInput !== '') {
-            const filteredData = data.filter((item) => {
-                return Object.values(item).join('').toLocaleLowerCase().includes(searchInput.toLocaleLowerCase())
-            })
-            
-            setFilteredResults(filteredData);
+    /**
+     * Function that handles input.
+     * Takes one @param {Event} e to prevent default reload and 
+     * @returns an array of search results.
+     */
+    const handleChange = (e) => {
+        e.preventDefault();
+        const searchWord = e.target.value;
+        const venueList = data.filter((value) => {
+            return value.name.toLowerCase().includes(searchWord.toLowerCase());
+        })
+
+        if(searchInput === '') {
+            return setSearchInput([])
         } else {
-            setFilteredResults(data)
+            return setSearchInput(venueList);
         }
     }
+
+    console.log(searchInput)
 
 
     return (
         <div>
-            <input type="text" placeholder="search"></input>
+            <div className={styles.container}>
+                <input 
+                    type="text" 
+                    placeholder="search" 
+                    onChange={handleChange}
+                    className={styles.input}/>
+            </div>
+            {searchInput.length !== 0 && (
+            <div className={styles.searchInput}>
+                {searchInput.map((product) => {
+                    return <div className={styles.data}>
+                                <Link to={`/venues/${product.id}`} className={styles.data}>{product.name}</Link>
+                            </div>
+                })}
+            </div>
+            )}
         </div>
     )
 }

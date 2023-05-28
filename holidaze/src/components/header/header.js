@@ -1,9 +1,15 @@
 import { Navigation } from "./navigation";
+import { Link } from "react-router-dom";
+import styles from "./Header.module.css";
 
+/**
+ * Scaffolding component that
+ * @returns a JSX header with logo and navigation
+ */
 export function Header() {
     return (
         <header>
-            <h1>Wassup</h1>
+            <Link to="/"><h1 className={styles.logo}>Holidaze</h1></Link>
             <Navigation />
         </header>
     )

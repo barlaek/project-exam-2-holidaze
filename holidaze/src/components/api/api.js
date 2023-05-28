@@ -1,6 +1,12 @@
 import React, {useEffect, useState} from 'react'
 
-export function ApiHook(url) {
+/**
+ * Api hook component that takes two parameters
+ * @param {*} url 
+ * @param {*} headers 
+ * @returns endpoint data
+ */
+export function ApiHook(url, headers) {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState([false]);
     const [error, setError] = useState([false]);
@@ -11,7 +17,7 @@ export function ApiHook(url) {
                 setLoading(true);
                 setError(false);
 
-                const fetchData = await fetch(url);
+                const fetchData = await fetch(url, headers);
                 console.log(fetchData);
                 const response = await fetchData.json();
                 console.log(response);
@@ -24,7 +30,7 @@ export function ApiHook(url) {
             }
         }
         getData();
-    }, [url])
+    }, [url], {headers})
 
     return { data, loading, error };
 }
