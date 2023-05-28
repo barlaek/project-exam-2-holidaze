@@ -5,6 +5,7 @@ import { loginUrl } from "../api/endpoints";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { UserContext } from "../../App";
+import styles from "./Login.module.css"
 
 /**
  * Schema object that handles log in validation
@@ -108,15 +109,19 @@ export function Login() {
     }
 
     return (
-        <div>
-            <h1>Log in</h1>
+        <div className={styles.login}>
             <fieldset>
+                <h1 className={styles.title}>Log in</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <input {...register('email')} placeholder='Email'/>
+                    <label for="email">Email</label>
+                    <input {...register('email')} placeholder='Email' className={styles.input}/>
                     <p>{errors.email?.message}</p>
-                    <input type='password' {...register('password')} placeholder='Password'/>
+                    <label for="password">Password</label>
+                    <input type='password' {...register('password')} placeholder='Password' className={styles.input}/>
                     <p>{errors.password?.message}</p>
-                    <input type='submit' value='Log in'/>
+                    <div className={styles.container}>
+                        <input type='submit' value='Log in'className={styles.button}/>
+                    </div>
                 </form>
             </fieldset>
             <Link to="/register"><p>Register an account</p></Link>
