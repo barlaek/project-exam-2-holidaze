@@ -37,9 +37,14 @@ button {
   border: none;
   background-color: #50E3C2;
   padding: 11px;
-  width: 100px;
   border-radius: 7.5px;
   cursor: pointer;
+}
+
+@media (min-width: 500px) {
+  button {
+    width: 100px;
+  }
 }
 
 button:hover {

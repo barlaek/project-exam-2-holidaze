@@ -6,7 +6,7 @@
 
 .input {
     border: 1px solid;
-    width: 300px;
+    width: 250px;
     padding: 10px;
     border-radius: 7.5px;
 }
@@ -43,6 +43,12 @@
 
 .data:hover {
     background-color: lightgray;
+}
+
+@media (min-width: 400px) {
+    .input {
+        width: 300px;
+    }
 }
 
 @media (min-width: 800px) {

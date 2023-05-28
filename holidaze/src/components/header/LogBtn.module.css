@@ -4,14 +4,11 @@
 
 .flex {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 @media (min-width: 1200px) {
     .logBtn {
         margin: 0 10px;
-    }
-    .flex {
-        flex-direction: row;
     }
 }
